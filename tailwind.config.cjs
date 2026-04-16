@@ -8,16 +8,14 @@ module.exports = {
     extend: {
       colors: {
         background: '#ffffff',
-        text: '#111111',
-        // Your new warm golden-orange/yellowish button color
-        "brand-btn": '#d97706', // Premium Amber/Orange
-        "brand-btn-hover": '#b45309', // Slightly darker for the hover effect
+        text: '#1e293b',
+        // The exact orange and pink hover from the source code
+        "brand-btn": '#f87c47', 
+        "brand-btn-hover": '#DA138E',
       },
       fontFamily: {
-        sans: ['"Inter"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
-      },
-      letterSpacing: {
-        widest: '.2em',
+        sans: ['"Inter"', 'sans-serif'],
+        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
       }
     },
   },

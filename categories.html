@@ -4,83 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Collections | MRT International</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0..1&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="/src/style.css">
     <script type="module" src="/src/main.js"></script>
 </head>
-<body class="bg-background text-text font-sans antialiased opacity-0 transition-opacity duration-500" onload="document.body.classList.remove('opacity-0')">
+<body class="bg-background antialiased opacity-0 transition-opacity duration-500" onload="document.body.classList.remove('opacity-0')">
     
-    <div class="bg-text text-white text-[10px] sm:text-xs text-center py-2 uppercase tracking-[0.2em] w-full">
-        Free Global Shipping On Orders Over $150
-    </div>
+    <header class="w-full bg-white border-b border-gray-100 py-5 px-6 md:px-12 flex items-center justify-between sticky top-0 z-50">
+        <a href="index.html" class="text-2xl md:text-3xl font-heading font-bold text-[#1e293b] tracking-wide">MRT.INTL</a>
+        
+        <nav class="hidden lg:flex gap-8">
+            <a href="index.html" class="text-[15px] font-medium text-[#67768e] hover:text-brand-btn transition">Home</a>
+            <a href="categories.html" class="text-[15px] font-medium text-[#1e293b] hover:text-brand-btn transition">Shop / Collections</a>
+            <a href="categories.html" class="text-[15px] font-medium text-[#1e293b] hover:text-brand-btn transition">Categories</a>
+            <a href="about.html" class="text-[15px] font-medium text-[#67768e] hover:text-brand-btn transition">About</a>
+            <a href="contact.html" class="text-[15px] font-medium text-[#67768e] hover:text-brand-btn transition">Contact</a>
+        </nav>
 
-    <header class="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border w-full h-[70px] flex items-center justify-between px-4 sm:px-8">
-        <div class="flex-1 flex items-center">
-            <button id="mobile-menu-btn" class="sm:hidden mr-4">
-                <span class="material-symbols-outlined text-[26px]">menu</span>
-            </button>
-            <nav class="hidden sm:flex gap-6">
-                <a href="categories.html" class="text-xs uppercase tracking-widest hover:text-muted transition">Shop</a>
-                <a href="about.html" class="text-xs uppercase tracking-widest hover:text-muted transition">About</a>
-            </nav>
-        </div>
-
-        <a href="index.html" class="flex-shrink-0 text-center">
-            <span class="text-2xl sm:text-3xl font-serif tracking-widest uppercase">MRT</span>
-        </a>
-
-        <div class="flex-1 flex justify-end items-center gap-4 sm:gap-6">
-            <a href="categories.html" class="hover:text-muted transition">
-                <span class="material-symbols-outlined text-[24px]">search</span>
+        <div class="flex items-center gap-5">
+            <a href="categories.html" class="hidden md:inline-flex items-center gap-2 bg-brand-btn hover:bg-brand-btn-hover text-white text-sm font-semibold py-3 px-7 rounded-lg transition-colors">
+                EXPLORE <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
             </a>
-            <a href="cart.html" class="relative hover:text-muted transition flex items-center">
-                <span class="material-symbols-outlined text-[24px]">shopping_bag</span>
-                <span class="absolute -bottom-1 -right-1 bg-brand-btn text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+            <button class="text-[#1e293b] hover:text-brand-btn transition lg:hidden">
+                <span class="material-symbols-outlined text-[28px]">menu</span>
+            </button>
+            <a href="cart.html" class="relative text-[#1e293b] hover:text-brand-btn transition">
+                <span class="material-symbols-outlined text-[28px]">shopping_bag</span>
+                <span class="cart-counter absolute -top-1 -right-2 bg-brand-btn text-white text-[10px] w-[18px] h-[18px] rounded-full flex items-center justify-center font-bold">0</span>
             </a>
         </div>
     </header>
 
     <main>
-        <section class="py-20 bg-[#f4f4f4] border-b border-border">
+        <section class="py-20 bg-[#f9f6fe] border-b border-gray-100">
             <div class="container mx-auto px-6 text-center">
-                <span class="text-text font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">Archive</span>
-                <h1 class="text-5xl md:text-7xl font-serif text-text tracking-tight">The Collections.</h1>
+                <span class="text-[#67768e] font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">Archive</span>
+                <h1 class="text-5xl md:text-7xl font-heading font-bold text-[#1e293b] tracking-tight">The Collections.</h1>
             </div>
         </section>
 
-        <!-- Categories Grid -->
-        <section class="py-24 px-4 sm:px-8 max-w-[1600px] mx-auto" id="categories">
-            <div id="avory-categories-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                <!-- Javascript will render the 4-column grid here -->
+        <section class="py-24 px-6 md:px-12 max-w-[1600px] mx-auto bg-white">
+            <div id="avory-categories-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Javascript categories will go here -->
             </div>
         </section>
     </main>
 
-    <footer class="bg-text text-white py-16 px-6 sm:px-12 mt-10">
-        <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div>
-                <h3 class="text-xl font-serif tracking-widest uppercase mb-4">MRT</h3>
-                <p class="text-sm text-gray-400 max-w-xs">Curating global excellence for the modern lifestyle. Quality without compromise.</p>
+    <footer class="bg-[#f9f6fe] pt-20 pb-10 border-t border-gray-200 mt-10">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <div>
+                    <h4 class="text-lg font-heading font-bold text-[#1e293b] mb-6">Categories</h4>
+                    <ul class="space-y-4 text-[15px] text-[#67768e]">
+                        <li><a href="categories.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Home & Decor</a></li>
+                        <li><a href="categories.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Women</a></li>
+                        <li><a href="categories.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Men</a></li>
+                        <li><a href="categories.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Beauty</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-heading font-bold text-[#1e293b] mb-6">Customer Support</h4>
+                    <ul class="space-y-4 text-[15px] text-[#67768e]">
+                        <li><a href="mailto:support@mrt.intl" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">mail</span> support@mrt.intl</a></li>
+                        <li><a href="#" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-heading font-bold text-[#1e293b] mb-6">Company</h4>
+                    <ul class="space-y-4 text-[15px] text-[#67768e]">
+                        <li><a href="index.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> About</a></li>
+                        <li><a href="contact.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-3xl font-heading font-bold text-[#1e293b] mb-4 tracking-wide">MRT.INTL</h3>
+                    <p class="text-[15px] text-[#67768e] mb-6 leading-relaxed">
+                        Curated luxury finds from global marketplaces, brought together in one elegant space.
+                    </p>
+                </div>
+                
             </div>
-            <div>
-                <h4 class="text-xs uppercase tracking-widest mb-4">Links</h4>
-                <ul class="space-y-3 text-sm text-gray-400">
-                    <li><a href="categories.html" class="hover:text-white">Collections</a></li>
-                    <li><a href="#" class="hover:text-white">Shipping & Returns</a></li>
-                    <li><a href="contact.html" class="hover:text-white">Contact Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-xs uppercase tracking-widest mb-4">Stay Updated</h4>
-                <form class="flex border-b border-gray-600 pb-2">
-                    <input type="email" placeholder="Email address" class="bg-transparent border-none outline-none text-sm w-full text-white placeholder:text-gray-500">
-                    <button type="submit" class="text-xs uppercase tracking-widest hover:text-gray-300">Subscribe</button>
-                </form>
+            
+            <div class="border-t border-gray-200 pt-8 text-center">
+                <p class="text-sm text-[#67768e]">© 2026 MRT International. All rights reserved.</p>
             </div>
         </div>
     </footer>

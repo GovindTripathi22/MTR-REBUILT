@@ -3,108 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MRT International</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <title>MRT International | Curated Finds</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0..1&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="/src/style.css">
     <script type="module" src="/src/main.js"></script>
 </head>
-<body class="bg-background text-text font-sans antialiased opacity-0 transition-opacity duration-500" onload="document.body.classList.remove('opacity-0')">
+<body class="bg-background antialiased opacity-0 transition-opacity duration-500" onload="document.body.classList.remove('opacity-0')">
     
-    <div class="bg-text text-white text-[10px] sm:text-xs text-center py-2 uppercase tracking-[0.2em] w-full">
-        Free Global Shipping On Orders Over $150
-    </div>
+    <header class="w-full bg-white border-b border-gray-100 py-5 px-6 md:px-12 flex items-center justify-between sticky top-0 z-50">
+        <a href="index.html" class="text-2xl md:text-3xl font-heading font-bold text-[#1e293b] tracking-wide">MRT.INTL</a>
+        
+        <nav class="hidden lg:flex gap-8">
+            <a href="index.html" class="text-[15px] font-medium text-[#1e293b] hover:text-brand-btn transition">Home</a>
+            <a href="categories.html" class="text-[15px] font-medium text-[#67768e] hover:text-brand-btn transition">Shop / Collections</a>
+            <a href="categories.html" class="text-[15px] font-medium text-[#67768e] hover:text-brand-btn transition">Categories</a>
+            <a href="about.html" class="text-[15px] font-medium text-[#67768e] hover:text-brand-btn transition">About</a>
+            <a href="contact.html" class="text-[15px] font-medium text-[#67768e] hover:text-brand-btn transition">Contact</a>
+        </nav>
 
-    <header class="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border w-full h-[70px] flex items-center justify-between px-4 sm:px-8">
-        <div class="flex-1 flex items-center">
-            <button id="mobile-menu-btn" class="sm:hidden mr-4">
-                <span class="material-symbols-outlined text-[26px]">menu</span>
-            </button>
-            <nav class="hidden sm:flex gap-6">
-                <a href="categories.html" class="text-xs uppercase tracking-widest hover:text-muted transition">Shop</a>
-                <a href="about.html" class="text-xs uppercase tracking-widest hover:text-muted transition">About</a>
-            </nav>
-        </div>
-
-        <a href="index.html" class="flex-shrink-0 text-center">
-            <span class="text-2xl sm:text-3xl font-serif tracking-widest uppercase">MRT</span>
-        </a>
-
-        <div class="flex-1 flex justify-end items-center gap-4 sm:gap-6">
-            <a href="categories.html" class="hover:text-muted transition">
-                <span class="material-symbols-outlined text-[24px]">search</span>
+        <div class="flex items-center gap-5">
+            <a href="categories.html" class="hidden md:inline-flex items-center gap-2 bg-brand-btn hover:bg-brand-btn-hover text-white text-sm font-semibold py-3 px-7 rounded-lg transition-colors">
+                EXPLORE <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
             </a>
-            <a href="cart.html" class="relative hover:text-muted transition flex items-center">
-                <span class="material-symbols-outlined text-[24px]">shopping_bag</span>
-                <span class="absolute -bottom-1 -right-1 bg-brand-btn text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+            <button class="text-[#1e293b] hover:text-brand-btn transition lg:hidden">
+                <span class="material-symbols-outlined text-[28px]">menu</span>
+            </button>
+            <a href="cart.html" class="relative text-[#1e293b] hover:text-brand-btn transition">
+                <span class="material-symbols-outlined text-[28px]">shopping_bag</span>
+                <span class="cart-counter absolute -top-1 -right-2 bg-brand-btn text-white text-[10px] w-[18px] h-[18px] rounded-full flex items-center justify-center font-bold">0</span>
             </a>
         </div>
     </header>
 
     <main>
-        <section class="relative w-full h-[75vh] md:h-[85vh] bg-gray-200 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1515347619362-74efce90a0cb?q=80&w=2070&auto=format&fit=crop" alt="Summer Collection" class="w-full h-full object-cover object-center">
-            
-            <div class="absolute inset-0 bg-black/20"></div>
-            
-            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-widest uppercase">
-                    CURATED ELEGANCE
-                </h1>
-                <p class="text-white text-base md:text-lg mb-8 font-light max-w-lg shadow-sm">
-                    Discover our latest collection of premium finds.
+        <section class="w-full flex flex-col lg:flex-row min-h-[85vh]">
+            <div class="w-full lg:w-1/2 flex flex-col justify-center px-8 py-16 md:px-16 lg:px-24 bg-white">
+                <h6 class="text-sm font-heading tracking-widest text-[#67768e] uppercase mb-4">Welcome to MRT.INTL</h6>
+                <h1 class="text-5xl md:text-7xl font-heading font-bold text-[#1e293b] mb-6 leading-[1.1]">Curated Luxury Finds for Your Lifestyle</h1>
+                <p class="text-lg text-[#67768e] mb-10 max-w-md leading-relaxed font-light">
+                    Discover beautifully handpicked home, fashion, beauty, and lifestyle pieces from global marketplaces — all curated in one elegant space.
                 </p>
-                <a href="categories.html" class="inline-block bg-brand-btn text-white text-sm uppercase tracking-widest font-semibold py-4 px-10 hover:bg-brand-btn-hover transition-colors">
-                    SHOP NOW
+                <a href="#featured" class="inline-flex self-start items-center gap-2 bg-brand-btn hover:bg-brand-btn-hover text-white font-semibold text-sm tracking-wide py-4 px-8 rounded-lg transition-colors">
+                    EXPLORE COLLECTIONS <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                </a>
+            </div>
+            <div class="w-full lg:w-1/2 h-[50vh] lg:h-auto">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Interior Aesthetic">
+            </div>
+        </section>
+
+        <section id="featured" class="py-24 px-6 md:px-12 max-w-[1600px] mx-auto bg-white">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-heading font-bold text-[#1e293b]">Featured Categories</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="categories.html" class="category-card group">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=800&auto=format&fit=crop" alt="Home Decor" class="category-img">
+                    <div class="category-overlay"></div>
+                    <div class="category-content">
+                        <h3 class="category-title">Home & Decor</h3>
+                        <p class="category-desc">Curated luxury pieces to elevate your living space — elegant furniture, textiles, lighting, and timeless home accents.</p>
+                        <span class="category-btn">Read More</span>
+                    </div>
+                </a>
+
+                <a href="categories.html" class="category-card group">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop" alt="Women" class="category-img">
+                    <div class="category-overlay"></div>
+                    <div class="category-content">
+                        <h3 class="category-title">Women</h3>
+                        <p class="category-desc">Chic, modern, and premium fashion essentials for women — clothing, bags, shoes, jewelry, and statement accessories.</p>
+                        <span class="category-btn">Read More</span>
+                    </div>
+                </a>
+
+                <a href="categories.html" class="category-card group">
+                    <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=800&auto=format&fit=crop" alt="Men" class="category-img">
+                    <div class="category-overlay"></div>
+                    <div class="category-content">
+                        <h3 class="category-title">Men</h3>
+                        <p class="category-desc">Sophisticated wardrobe staples and refined accessories crafted for the modern gentleman.</p>
+                        <span class="category-btn">Read More</span>
+                    </div>
+                </a>
+
+                <a href="categories.html" class="category-card group">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bf85033e5a?q=80&w=800&auto=format&fit=crop" alt="Beauty" class="category-img">
+                    <div class="category-overlay"></div>
+                    <div class="category-content">
+                        <h3 class="category-title">Beauty</h3>
+                        <p class="category-desc">High-end skincare, perfumes, haircare, and wellness essentials to elevate your daily beauty ritual.</p>
+                        <span class="category-btn">Read More</span>
+                    </div>
                 </a>
             </div>
         </section>
 
-        <section class="py-16 sm:py-24 px-4 sm:px-8 max-w-[1600px] mx-auto">
-            <div class="flex justify-between items-end mb-10 border-b border-border pb-4">
-                <h2 class="text-2xl font-serif">Shop by Category</h2>
+        <section class="py-20 px-6 md:px-12 max-w-[1600px] mx-auto border-t border-gray-100">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-heading font-bold text-[#1e293b]">Latest Arrivals</h2>
             </div>
-            <div id="avory-categories-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                </div>
-        </section>
-
-        <section class="py-12 sm:py-20 px-4 sm:px-8 max-w-[1600px] mx-auto">
-            <div class="flex justify-between items-end mb-10">
-                <h2 class="text-2xl font-serif">Trending Now</h2>
-                <a href="categories.html" class="text-xs uppercase tracking-widest hover:text-muted border-b border-text pb-1">View All</a>
-            </div>
-            <div id="bestsellers-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-10 sm:gap-x-6 sm:gap-y-12">
-                </div>
+            <div id="bestsellers-grid" class="products-list"></div>
         </section>
     </main>
 
-    <footer class="bg-text text-white py-16 px-6 sm:px-12 mt-10">
-        <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div>
-                <h3 class="text-xl font-serif tracking-widest uppercase mb-4">MRT</h3>
-                <p class="text-sm text-gray-400 max-w-xs">Curating global excellence for the modern lifestyle. Quality without compromise.</p>
+    <footer class="bg-[#f9f6fe] pt-20 pb-10 border-t border-gray-200 mt-10">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <div>
+                    <h4 class="text-lg font-heading font-bold text-[#1e293b] mb-6">Categories</h4>
+                    <ul class="space-y-4 text-[15px] text-[#67768e]">
+                        <li><a href="categories.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Home & Decor</a></li>
+                        <li><a href="categories.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Women</a></li>
+                        <li><a href="categories.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Men</a></li>
+                        <li><a href="categories.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Beauty</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-heading font-bold text-[#1e293b] mb-6">Customer Support</h4>
+                    <ul class="space-y-4 text-[15px] text-[#67768e]">
+                        <li><a href="mailto:support@mrt.intl" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">mail</span> support@mrt.intl</a></li>
+                        <li><a href="#" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-heading font-bold text-[#1e293b] mb-6">Company</h4>
+                    <ul class="space-y-4 text-[15px] text-[#67768e]">
+                        <li><a href="index.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> About</a></li>
+                        <li><a href="contact.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-3xl font-heading font-bold text-[#1e293b] mb-4 tracking-wide">MRT.INTL</h3>
+                    <p class="text-[15px] text-[#67768e] mb-6 leading-relaxed">
+                        Curated luxury finds from global marketplaces, brought together in one elegant space.
+                    </p>
+                </div>
+                
             </div>
-            <div>
-                <h4 class="text-xs uppercase tracking-widest mb-4">Links</h4>
-                <ul class="space-y-3 text-sm text-gray-400">
-                    <li><a href="categories.html" class="hover:text-white">Collections</a></li>
-                    <li><a href="#" class="hover:text-white">Shipping & Returns</a></li>
-                    <li><a href="contact.html" class="hover:text-white">Contact Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-xs uppercase tracking-widest mb-4">Stay Updated</h4>
-                <form class="flex border-b border-gray-600 pb-2">
-                    <input type="email" placeholder="Email address" class="bg-transparent border-none outline-none text-sm w-full text-white placeholder:text-gray-500">
-                    <button type="submit" class="text-xs uppercase tracking-widest hover:text-gray-300">Subscribe</button>
-                </form>
+            
+            <div class="border-t border-gray-200 pt-8 text-center">
+                <p class="text-sm text-[#67768e]">© 2026 MRT International. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
 </body>
 </html>

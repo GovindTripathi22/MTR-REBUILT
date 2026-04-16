@@ -7,7 +7,7 @@ class MRTApp {
 
     this.allProducts = [];
     this.init();
-    this.initContactForm(); // Re-added contact form init
+    this.initContactForm();
     
     // Bind global quick view for the buttons
     window.openQuickView = (id) => this.openQuickView(id);
@@ -44,7 +44,7 @@ class MRTApp {
           if (status) {
             status.innerText = 'MESSAGE SENT SUCCESSFULLY. WE WILL BE IN TOUCH.';
             status.classList.remove('hidden', 'text-red-500');
-            status.classList.add('text-brand-btn');
+            status.classList.add('text-[#f87c47]');
           }
           form.reset();
         } else {
@@ -53,7 +53,7 @@ class MRTApp {
       } catch (err) {
         if (status) {
           status.innerText = 'ERROR: ' + err.message.toUpperCase();
-          status.classList.remove('hidden', 'text-brand-btn');
+          status.classList.remove('hidden', 'text-[#f87c47]');
           status.classList.add('text-red-500');
         }
       } finally {
@@ -67,7 +67,6 @@ class MRTApp {
     const isCategoryPage = window.location.pathname.includes('category.html') || window.location.search.includes('c=');
     
     if (isCategoryPage) {
-      // Handle individual category logic if needed, or fallback to general fetch
       await this.fetchAndRenderProducts();
     } else {
       await this.renderHomepage();
@@ -76,7 +75,6 @@ class MRTApp {
 
   async renderHomepage() {
     try {
-      // CMS Fetch
       const [catsRes, prodsRes] = await Promise.all([
         fetch(`/api/categories?_t=${Date.now()}`),
         fetch(`/api/products?limit=24&_t=${Date.now()}`)
@@ -86,18 +84,7 @@ class MRTApp {
       const productsData = await prodsRes.json();
       this.allProducts = Array.isArray(productsData) ? productsData : (productsData.products || []);
 
-      // Render Categories
-      const catGrid = document.getElementById('avory-categories-grid');
-      if (catGrid && categories.length > 0) {
-        catGrid.innerHTML = categories.slice(0, 4).map(c => `
-          <a href="category.html?c=${c.slug}" class="block group">
-            <div class="aspect-[4/5] bg-gray-100 overflow-hidden mb-4 relative">
-              <img src="${c.image || `/assets/categories/${c.slug}.png`}" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" onerror="this.src='/assets/products/premium_product_placeholder.png'">
-            </div>
-            <h3 class="text-sm uppercase tracking-widest text-center">${c.name}</h3>
-          </a>
-        `).join('');
-      }
+      // No dynamic category rendering on home anymore as it's hardcoded in index.html for specific Unsplash aesthetic
 
       // Render Products
       const prodGrid = document.getElementById('bestsellers-grid');
@@ -111,7 +98,6 @@ class MRTApp {
   }
   
   async fetchAndRenderProducts() {
-      // Stub for category page rendering logic to avoid errors
       try {
           const prodsRes = await fetch(`/api/products?limit=50&_t=${Date.now()}`);
           const productsData = await prodsRes.json();
@@ -141,26 +127,23 @@ class MRTApp {
     const price = product.price ? parseFloat(product.price).toFixed(2) : '0.00';
     const currency = product.currency === 'AED' ? 'د.إ ' : '$';
 
+    // Updated to match the "PDF" style.css structure
     return `
-      <article class="boutique-card" data-id="${product.id}">
-        <div class="boutique-img-wrap">
-          <img src="${img}" alt="${name}" class="boutique-img" onerror="this.src='/assets/products/premium_product_placeholder.png'">
-          <button class="boutique-quick-add" onclick="window.openQuickView('${product.id}'); event.preventDefault();">
-            Quick Add
-          </button>
+      <article class="product-item" data-id="${product.id}">
+        <img src="${img}" alt="${name}" onerror="this.src='/assets/products/premium_product_placeholder.png'">
+        <h3 class="product-title">${name}</h3>
+        <p class="product-excerpt">${currency}${price}</p>
+        <div class="product-buttons">
+          <a class="btn-primary" onclick="window.openQuickView('${product.id}'); event.preventDefault();">Quick Add</a>
         </div>
-        <h3 class="boutique-title">${name}</h3>
-        <p class="boutique-price">${currency}${price}</p>
       </article>
     `;
   }
 
   openQuickView(id) {
-    // Simple redirect to cart or actual product page, or implement drawer
     const product = this.allProducts.find(p => String(p.id) === String(id));
     if(!product) return;
     
-    // For exact Shopify feel, triggering an alert or adding to a cart object is standard before checkout
     console.log(`Adding ${product.name} to cart...`);
     alert(`Added ${product.name} to your cart!`);
   }
