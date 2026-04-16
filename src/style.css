@@ -1,374 +1,167 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
-:root {
-  --primary: #111111;
-  --primary-dark: #000000;
-  --primary-light: #333333;
-  --accent-gold: #c5a059;
-  --glass: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --font-headline: 'Manrope', sans-serif;
-  --font-body: 'Manrope', sans-serif;
-}
- 
+
 @layer base {
   body {
-    @apply bg-black text-white selection:bg-primary/30 selection:text-white antialiased overflow-x-hidden;
-    font-family: var(--font-body);
-  }
- 
-  .font-headline {
-    font-family: var(--font-headline);
-  }
-}
- 
-@layer components {
-  /* Liquid Glass Effect */
-  .glass-card {
-    @apply bg-white/[0.03] backdrop-blur-2xl border border-white/[0.08] transition-all duration-500;
-  }
- 
-  .glass-card:hover {
-    @apply bg-white/[0.05] border-white/[0.15] shadow-[0_0_50px_rgba(145,77,0,0.1)];
-  }
- 
-  /* Premium Product Card */
-  .product-item {
-    @apply shadow-[0_10px_30px_rgba(0,0,0,0.04)];
-  }
-
-  /* Logo Glow Effect */
-  .logo-glow {
-    filter: drop-shadow(0 0 15px rgba(145, 77, 0, 0.3));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-/* Fix for mix-blend mode on dark background */
-.mix-blend-multiply {
-  mix-blend-mode: multiply;
-}
- 
-/* Custom Animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
- 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
- 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
- 
-::-webkit-scrollbar-track {
-  @apply bg-black;
-}
- 
-::-webkit-scrollbar-thumb {
-  @apply bg-white/10 rounded-full hover:bg-primary transition-colors;
-}
- 
-/* Masking for Social Icons (using placeholders) */
-.mask-facebook { mask-image: url('https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/facebook.svg'); mask-repeat: no-repeat; mask-position: center; }
-.mask-instagram { mask-image: url('https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/instagram.svg'); mask-repeat: no-repeat; mask-position: center; }
-.mask-twitter { mask-image: url('https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/twitter.svg'); mask-repeat: no-repeat; mask-position: center; }
-.mask-linkedin { mask-image: url('https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/linkedin.svg'); mask-repeat: no-repeat; mask-position: center; }
- 
-/* Hide Material Icons for a cleaner look while loading */
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+/* Hide scrollbars for ultra-clean carousels */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── AVORY-STYLE EDITORIAL PRODUCT CARDS ── */
+.mrt-product-card {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  group: true;
 }
 
-/* ── MRT BOUTIQUE PREMIUM STYLES ─────────────────────────── */
-.mso { font-family:'Material Symbols Outlined'; font-variation-settings:'FILL' 0,'wght' 400; line-height:1; display:inline-block; vertical-align:middle; }
-
-/* Product Card */
-.mrt-product-card { display:flex; flex-direction:column; background:#fff; border-radius:20px; overflow:hidden; border:1px solid #f1f5f9; box-shadow:0 2px 16px 0 rgba(0,0,0,.06); transition:all .35s cubic-bezier(.22,1,.36,1); cursor:pointer; position:relative; }
-.mrt-product-card:hover { transform:translateY(-6px); box-shadow:0 20px 60px 0 rgba(0,0,0,.13); }
-
-.mrt-card-carousel { flex-shrink:0; width:280px; }
-@media(min-width:768px){ .mrt-card-carousel { width:340px; } }
-
-.mrt-card-img-wrap { position:relative; width:100%; aspect-ratio:1/1; background:linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%); display:flex; align-items:center; justify-content:center; overflow:hidden; }
-.mrt-card-img { width:72%; height:72%; object-fit:contain; transition:transform .6s cubic-bezier(.22,1,.36,1); filter:drop-shadow(0 8px 24px rgba(0,0,0,.12)); }
-.mrt-product-card:hover .mrt-card-img { transform:scale(1.08) translateY(-4px); }
-
-.mrt-badge-row { position:absolute; top:12px; left:12px; right:12px; display:flex; justify-content:space-between; z-index:10; pointer-events:none; }
-.mrt-badge-pill { display:flex; align-items:center; gap:4px; padding:3px 10px; border-radius:999px; background:linear-gradient(90deg,#f59e0b,#f97316); font-size:9px; font-weight:900; color:#fff; letter-spacing:.08em; text-transform:uppercase; box-shadow:0 2px 8px rgba(249,115,22,.4); }
-.mrt-discount-pill { width:36px; height:36px; border-radius:50%; background:#ef4444; color:#fff; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:900; box-shadow:0 2px 8px rgba(239,68,68,.4); }
-
-.mrt-img-overlay { position:absolute; inset:0; background:rgba(15,23,42,.5); backdrop-filter:blur(3px); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .3s ease; }
-.mrt-product-card:hover .mrt-img-overlay { opacity:1; }
-.mrt-qv-overlay-btn { display:flex; align-items:center; gap:8px; padding:10px 22px; border-radius:12px; background:#fff; color:#111 !important; font-size:11px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; border:none; cursor:pointer; box-shadow:0 8px 32px rgba(0,0,0,.3); transform:translateY(12px); transition:transform .35s cubic-bezier(.22,1,.36,1), background .2s; }
-.mrt-product-card:hover .mrt-qv-overlay-btn { transform:translateY(0); }
-.mrt-qv-overlay-btn:hover { background:var(--primary,#914d00) !important; color:#fff !important; }
-
-.mrt-card-body { padding:16px; display:flex; flex-direction:column; flex:1; }
-.mrt-card-meta { display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; }
-.mrt-card-category { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.2em; color:var(--primary,#914d00); opacity:.6; }
-.mrt-card-stars { display:flex; align-items:center; gap:2px; }
-.mrt-review-count { font-size:10px; color:#9ca3af; margin-left:3px; }
-
-.mrt-card-name { font-size:15px; font-weight:900; color:#111 !important; line-height:1.35; margin-bottom:4px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; transition:color .2s; }
-.mrt-product-card:hover .mrt-card-name { color:var(--primary,#914d00) !important; }
-
-.mrt-card-desc { font-size:11px; color:#64748b; line-height:1.6; margin-bottom:12px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; flex:1; }
-.mrt-price-row { display:flex; align-items:baseline; gap:8px; margin-bottom:14px; flex-wrap:wrap; }
-.mrt-price { font-size:24px; font-weight:900; color:#111 !important; }
-.mrt-old-price { font-size:12px; color:#94a3b8; text-decoration:line-through; }
-.mrt-save-pill { margin-left:auto; font-size:9px; font-weight:900; color:#16a34a; background:#f0fdf4; padding:2px 8px; border-radius:999px; text-transform:uppercase; }
-
-.mrt-card-actions { display:flex; gap:8px; margin-top:auto; }
-.mrt-btn-buy { flex:1; display:flex; align-items:center; justify-content:center; gap:6px; padding:11px 0; border-radius:12px; background:linear-gradient(90deg,#f59e0b,#f97316); color:#fff !important; font-size:10px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; box-shadow:0 4px 16px rgba(249,115,22,.35); transition:all .25s ease; border:none; cursor:pointer; }
-.mrt-btn-buy:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(249,115,22,.45); filter:brightness(1.1); }
-
-.mrt-btn-qv { display:flex; align-items:center; justify-content:center; width:44px; flex-shrink:0; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0; color:#475569 !important; cursor:pointer; transition:all .2s; }
-.mrt-btn-qv:hover { background:#0f172a !important; color:#fff !important; border-color:#0f172a; transform:translateY(-2px); }
-
-/* Quick View Modal */
-#mrt-qv-modal { position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; padding:16px; pointer-events:none; }
-#mrt-qv-modal.is-open { pointer-events:all; }
-.mrt-qv-backdrop { position:absolute; inset:0; background:rgba(0,0,0,.75); backdrop-filter:blur(12px); opacity:0; transition:opacity .4s ease; }
-#mrt-qv-modal.is-open .mrt-qv-backdrop { opacity:1; }
-
-.mrt-qv-panel { position:relative; z-index:1; width:100%; max-width:900px; background:#fff; border-radius:28px; display:flex; flex-direction:column; overflow:hidden; max-height:90vh; box-shadow:0 40px 120px rgba(0,0,0,.3); opacity:0; transform:scale(.92) translateY(24px); transition:all .45s cubic-bezier(.22,1,.36,1); }
-@media(min-width:640px){ .mrt-qv-panel { flex-direction:row; } }
-#mrt-qv-modal.is-open .mrt-qv-panel { opacity:1; transform:scale(1) translateY(0); }
-
-.mrt-qv-img-col { width:100%; flex-shrink:0; background:linear-gradient(135deg,#f8fafc,#f1f5f9); display:flex; align-items:center; justify-content:center; padding:32px; min-height:240px; }
-@media(min-width:640px){ .mrt-qv-img-col { width:42%; } }
-.mrt-qv-img-col img { width:100%; height:100%; object-fit:contain; max-height:320px; filter:drop-shadow(0 12px 40px rgba(0,0,0,.15)); transition:transform .5s ease; }
-
-.mrt-qv-content-col { flex:1; padding:28px 28px 28px 24px; overflow-y:auto; display:flex; flex-direction:column; }
-.mrt-qv-close { position:absolute; top:16px; right:16px; z-index:10; width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.9); backdrop-filter:blur(8px); border:1px solid #e2e8f0; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s; color:#111 !important; }
-.mrt-qv-close:hover { background:#0f172a !important; color:#fff !important; transform:rotate(90deg); }
-
-@keyframes mrt-benefit-in { from { opacity:0; transform:translateX(-12px); } to { opacity:1; transform:translateX(0); } }
-.mrt-benefit-item { animation: mrt-benefit-in .4s ease both; }
-
-@media (max-width: 1023px) {
-  #reviews .reveal-up > span.text-3xl.filter.grayscale.drop-shadow-sm {
-    display: none;
-  }
+.mrt-card-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4; /* Taller, fashion-oriented aspect ratio */
+  background: #f4f2ee; /* Muted stone background */
+  overflow: hidden;
+  border-radius: 2px;
 }
 
-@layer base {
-  /* Strict Mobile Overflow Lock to prevent white space on the sides */
-  html, body {
-    max-width: 100vw;
-    width: 100%;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Make sure sections don't cause horizontal stretching */
-  section {
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
+.mrt-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 1, 0.2, 1);
 }
 
-
-/* Quick View Mobile Optimizations */
-@media(max-width: 639px){
-  .mrt-qv-img-col { 
-    min-height: 220px !important; 
-    padding: 16px !important; 
-  }
-  .mrt-qv-content-col { 
-    padding: 20px 20px 24px 20px !important; 
-  }
-  .mrt-qv-panel { 
-    max-height: 85vh; 
-    width: 95%; 
-    margin: 0 auto; 
-  }
-  .mrt-price-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-  }
+.mrt-product-card:hover .mrt-card-img {
+  transform: scale(1.05);
 }
 
-/* ==========================================================
-   AVORY-STYLE MOBILE APP OVERRIDES (DESKTOP IS UNTOUCHED)
-   ========================================================== */
+/* Minimalist Tags */
+.mrt-badge-row {
+  position: absolute;
+  top: 10px; left: 10px; right: 10px;
+  display: flex; justify-content: space-between;
+  z-index: 10;
+}
 
+.mrt-badge-pill {
+  background: #111;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+  padding: 4px 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Hover Quick View - Desktop */
+.mrt-img-overlay {
+  position: absolute; inset: 0;
+  background: rgba(250, 249, 246, 0.4);
+  backdrop-filter: blur(2px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.4s ease;
+}
+
+.mrt-product-card:hover .mrt-img-overlay { opacity: 1; }
+
+.mrt-qv-overlay-btn {
+  background: #111;
+  color: #fff !important;
+  font-size: 9px;
+  padding: 12px 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  transform: translateY(10px);
+  transition: all 0.4s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.mrt-product-card:hover .mrt-qv-overlay-btn {
+  transform: translateY(0);
+}
+
+.mrt-qv-overlay-btn:hover {
+  background: var(--accent, #8c6b4a);
+}
+
+/* Typography on Cards */
+.mrt-card-body {
+  padding: 16px 0;
+  text-align: center;
+}
+
+.mrt-card-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111 !important;
+  margin-bottom: 6px;
+}
+
+.mrt-price-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.mrt-price { color: #111; font-weight: 400; }
+.mrt-old-price { color: #a0a0a0; text-decoration: line-through; }
+
+/* ── AVORY MOBILE APP OVERRIDES ── */
 @media (max-width: 767px) {
-  /* Add padding so footer content isn't hidden behind the bottom nav */
-  body { padding-bottom: 80px !important; }
-  
-  /* Hamburger Menu Button Visible (Avory Redesign) */
-  #mobile-menu-btn { display: block !important; }
-  
-  /* Ensure Bottom Nav is visible on mobile only */
-  .mrt-app-bottom-nav { display: block !important; }
-  
-  /* Support for iPhone safe area at the bottom */
   .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
-}
-
-@media (min-width: 768px) {
-  .mrt-app-bottom-nav { display: none !important; }
-}
-
-/* --- 1. QUICK VIEW BOTTOM SHEET --- */
-@media (max-width: 639px) {
-  #mrt-qv-modal {
-    align-items: flex-end !important; 
-    padding: 0 !important; 
+  
+  /* Seamless 2-Column Grid Feed */
+  #avory-categories-grid, #bestsellers-grid, #category-products-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    padding: 0 4px !important;
   }
   
+  .mrt-product-card {
+    margin-bottom: 16px;
+  }
+  
+  .mrt-card-body { padding: 10px 4px; text-align: left; }
+  .mrt-price-row { justify-content: flex-start; }
+  
+  /* Quick View Bottom Sheet Mechanics */
+  #mrt-qv-modal { align-items: flex-end !important; padding: 0 !important; }
+  
   .mrt-qv-panel { 
-    max-height: 88vh !important; 
+    max-height: 85vh !important; 
     width: 100% !important; 
     margin: 0 !important; 
-    border-radius: 32px 32px 0 0 !important; 
+    border-radius: 24px 24px 0 0 !important; 
     transform: translateY(100%) !important; 
-    opacity: 1 !important;
-    transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1) !important;
+    transition: transform 0.4s cubic-bezier(0.2, 1, 0.2, 1) !important;
   }
 
-  #mrt-qv-modal.is-open .mrt-qv-panel {
-    transform: translateY(0) !important; 
-  }
+  #mrt-qv-modal.is-open .mrt-qv-panel { transform: translateY(0) !important; }
   
   .mrt-qv-img-col { 
-    min-height: 260px !important; 
-    padding: 24px !important; 
-    background: transparent !important;
-    border-bottom: 1px solid #f1f5f9;
+    min-height: 300px !important; 
+    padding: 0 !important; 
+    background: #f4f2ee !important;
   }
   
-  .mrt-qv-content-col { 
-    padding: 24px 20px 120px 20px !important; /* Huge bottom padding for sticky button */
-  }
+  .mrt-qv-img-col img { object-fit: cover; width: 100%; height: 100%; }
+  
+  .mrt-qv-content-col { padding: 24px 20px 100px 20px !important; }
 
-  /* Sticky 'Buy Now' button hovering at the bottom */
+  /* Sticky Buy Button Mobile */
   .mrt-qv-content-col > div:last-child {
-    position: fixed !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(10px) !important;
-    padding: 16px 24px env(safe-area-inset-bottom) 24px !important;
-    border-top: 1px solid #e2e8f0 !important;
-    z-index: 50 !important;
-    margin-top: 0 !important;
+    position: fixed !important; bottom: 0 !important; left: 0 !important;
+    width: 100% !important; background: rgba(250, 249, 246, 0.98) !important;
+    padding: 16px 24px calc(env(safe-area-inset-bottom) + 16px) 24px !important;
+    border-top: 1px solid rgba(0,0,0,0.05) !important;
   }
-}
-
-/* --- 2. SOCIAL FEED PRODUCT CARDS --- */
-@media (max-width: 639px) {
-  .mrt-product-card {
-    border: none !important;
-    box-shadow: none !important;
-    border-bottom: 1px solid #f1f5f9 !important;
-    border-radius: 0 !important;
-    padding-bottom: 24px !important;
-    margin-bottom: 8px !important;
-  }
-  
-  .mrt-card-img-wrap {
-    border-radius: 20px !important; 
-  }
-  
-  /* Force grid to 1 column feed if it's the category grid */
-  #category-grid {
-    grid-template-columns: 1fr !important;
-    gap: 8px !important;
-  }
-}
-
-/* --- 3. STICKY CATEGORY FILTERS --- */
-@media (max-width: 639px) {
-  /* Target the flex container holding the filter pills */
-  div.mb-12 > div.flex.flex-wrap.items-center.gap-3.mb-10 {
-    position: sticky;
-    top: 60px; /* Just below header */
-    z-index: 40;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
-    padding: 16px 24px 12px 24px;
-    margin-left: -32px;
-    margin-right: -32px;
-    border-bottom: 1px solid #f1f5f9;
-  }
-}
-
-/* --- AVORY MOBILE OVERRIDES --- */
-@media (max-width: 639px) {
-  .hide-scrollbar::-webkit-scrollbar { display: none; }
-  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  
-  /* Seamless Card Feed */
-  .mrt-product-card {
-    border: none !important;
-    border-radius: 8px !important;
-    background: #fff !important;
-    box-shadow: none !important;
-    padding-bottom: 16px !important;
-    margin-bottom: 8px !important;
-  }
-  
-  /* Edge-to-edge images */
-  .mrt-card-img-wrap {
-    padding: 0 !important;
-    border-radius: 8px !important;
-    background: #f8f9fa !important;
-    aspect-ratio: 1 / 1; 
-  }
-  .mrt-card-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-  
-  /* Strict 2 Column Grid */
-  #category-grid, #bestsellers-grid, #category-products-container {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 8px !important;
-    padding: 0 12px !important;
-    display: grid !important;
-  }
-  
-  .mrt-product-card h3 { font-size: 13px !important; margin-top: 8px !important; line-height: 1.3 !important; font-weight: 500 !important; color: #111827 !important;}
-  .mrt-product-card .text-xl { font-size: 14px !important; font-weight: 700 !important; color: #000 !important; }
-  
-  /* Remove Quick View Button on Mobile - Focus on tapping the image to buy */
-  .mrt-product-card button.w-full { display: none !important; }
-}
-
-/* --- FIXED HEADER SPACING FIX --- */
-@media (max-width: 767px) {
-  /* Push body content down exactly the height of the header so there is no white space or overlap */
-  body {
-    /* Relying on pt-14 on main instead of body padding to prevent double-offset gaps */
-  }
-  /* Remove any top margin from the first section that might cause white space */
-  main > section:first-child,
-  #categories {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-}
-
-@media (max-width: 767px) {
-  body { padding-bottom: 80px !important; }
-  #mobile-menu-btn { display: flex !important; }
-  main > section:first-child, #categories { margin-top: 0 !important; padding-top: 0 !important; }
-  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
-}
-
-@media (max-width: 639px) {
-  .mrt-product-card { border: none !important; border-radius: 8px !important; background: #fff !important; box-shadow: none !important; padding-bottom: 16px !important; margin-bottom: 8px !important; }
-  .mrt-card-img-wrap { padding: 0 !important; border-radius: 8px !important; background: #f8f9fa !important; aspect-ratio: 1/1; }
-  .mrt-card-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-  #category-grid, #bestsellers-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; padding: 0 12px !important; }
-  .mrt-product-card h3 { font-size: 13px !important; margin-top: 8px !important; font-weight: 500 !important; color: #111827 !important; }
-  .mrt-product-card .text-xl { font-size: 14px !important; font-weight: 700 !important; color: #000 !important; }
-  .mrt-product-card button.w-full { display: none !important; }
 }

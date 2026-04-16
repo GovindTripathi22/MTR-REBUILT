@@ -1,435 +1,138 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en" class="light scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Global sourcing company, Online shopping UAE, E-commerce store international, Affordable online products, Dropshipping store UAE, Buy trending products online, Best online deals UAE, International trading company">
-    <meta name="description" content="Welcome to MRT International Holding LLC - Your trusted partner for smart online shopping and global sourcing. Discover quality products, competitive pricing, and a seamless digital experience.">
-    <title>MRT International Holding LLC | Global Sourcing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MRT International | Premium Global Sourcing</title>
     
-    <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     
-    <!-- Scripts & Styles -->
     <link rel="stylesheet" href="/src/style.css">
-    <link rel="stylesheet" href="/src/product_card_enhancements.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-    <script type="module" src="/src/main.js?v=final_fix"></script>
-    <style>body { opacity: 0; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1); } body.loaded { opacity: 1; }</style>
-
+    <script type="module" src="/src/main.js"></script>
 </head>
-<body class="bg-surface text-on-surface">
-    <!-- Main Header -->
-    <header class="fixed top-0 left-0 w-full z-[100] bg-white/95 backdrop-blur-md border-b border-gray-100 h-14" id="header">
-      <div class="max-w-screen-2xl mx-auto px-4 h-full flex items-center justify-between relative">
-        
-        <!-- Left: Hamburger (Mobile) / Logo (Desktop) -->
+<body class="bg-surface text-on-surface antialiased selection:bg-primary selection:text-white transition-opacity duration-500 opacity-0" onload="document.body.classList.remove('opacity-0')">
+    
+    <header class="fixed top-0 left-0 w-full z-[100] bg-surface/80 backdrop-blur-xl border-b border-outline/20 h-16 transition-all" id="header">
+      <div class="max-w-screen-2xl mx-auto px-6 h-full flex items-center justify-between">
         <div class="flex items-center gap-4 z-50">
-            <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 text-gray-900">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-7 h-7">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
+            <button id="mobile-menu-btn" class="md:hidden text-primary">
+              <span class="material-symbols-outlined text-2xl">menu</span>
             </button>
-            <a href="index.html" class="hidden md:flex items-center">
-              <span class="text-[22px] font-extrabold italic tracking-tight text-gray-900 font-headline uppercase leading-none mt-1">MRT</span>
+        </div>
+
+        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-50">
+            <a href="index.html" class="flex items-center justify-center">
+                <span class="text-2xl font-headline font-bold tracking-widest uppercase text-primary">MRT</span>
             </a>
         </div>
 
-        <!-- Middle: Navigation (Desktop) / Logo (Mobile) -->
-        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-50 pointer-events-none md:pointer-events-auto">
-            <!-- Logo for Mobile Only -->
-            <a href="index.html" class="md:hidden flex items-center justify-center pointer-events-auto">
-                <span class="text-[22px] font-extrabold italic tracking-tight text-gray-900 font-headline uppercase leading-none mt-1">MRT</span>
-            </a>
-            <!-- Navigation for Desktop Only -->
-            <nav class="hidden md:flex items-center gap-10">
-                <a href="index.html" class="text-[11px] font-bold uppercase tracking-[0.25em] text-gray-900 hover:text-primary transition-colors">Home</a>
-                <a href="categories.html" class="text-[11px] font-bold uppercase tracking-[0.25em] text-gray-900 hover:text-primary transition-colors">Categories</a>
-                <a href="about.html" class="text-[11px] font-bold uppercase tracking-[0.25em] text-gray-900 hover:text-primary transition-colors">About</a>
-                <a href="contact.html" class="text-[11px] font-bold uppercase tracking-[0.25em] text-gray-900 hover:text-primary transition-colors">Contact</a>
-            </nav>
+        <div class="hidden md:flex items-center justify-center gap-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 mt-16 z-40 bg-surface/90 px-8 py-3 rounded-full shadow-avory-nav border border-outline/10 backdrop-blur-md">
+            <a href="index.html" class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/60 hover:text-primary transition-colors">Home</a>
+            <a href="categories.html" class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/60 hover:text-primary transition-colors">Collections</a>
+            <a href="about.html" class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/60 hover:text-primary transition-colors">Journal</a>
         </div>
 
-        <div class="flex items-center justify-end gap-3 z-50">
-          <div class="hidden md:flex items-center gap-3">
-            <a href="#" class="text-gray-900 hover:text-[#E4405F] transition-all duration-300" aria-label="Instagram">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        <div class="flex items-center justify-end gap-5 z-50">
+            <a href="categories.html" class="text-primary hover:opacity-70 transition-opacity">
+                <span class="material-symbols-outlined text-[22px]">search</span>
             </a>
-            <a href="#" class="text-gray-900 hover:text-black transition-all duration-300" aria-label="TikTok">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V2h5a4 4 0 0 0 4 4"/></svg>
+            <a href="cart.html" class="text-primary hover:opacity-70 transition-opacity relative">
+                <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+                <span class="absolute -top-1 -right-1 bg-accent text-white text-[8px] font-bold w-3.5 h-3.5 rounded-full flex items-center justify-center">0</span>
             </a>
-            <a href="https://wa.me/19044594398" target="_blank" class="text-gray-900 hover:text-[#25D366] transition-all duration-300" aria-label="WhatsApp">
-              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-            </a>
-          </div>
         </div>
       </div>
     </header>
 
-    <!-- Mobile Drawer Overlay -->
-    <div id="mobile-drawer-overlay" class="fixed inset-0 bg-black/50 z-[105] hidden opacity-0 transition-opacity duration-300"></div>
-    <aside id="mobile-drawer" class="fixed top-0 left-0 w-[85vw] max-w-[340px] h-[100dvh] bg-white z-[110] transform -translate-x-full transition-transform duration-300 flex flex-col">
-      <div class="p-5 flex justify-between items-center border-b border-gray-100">
-        <span class="font-extrabold text-xl text-gray-900 italic font-headline uppercase">Menu</span>
-        <button id="close-drawer-btn" class="p-2 text-gray-400 hover:text-black">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-        </button>
-      </div>
-      <nav class="flex flex-col p-6 gap-6 overflow-y-auto">
-        <a href="index.html" class="text-base font-normal text-gray-900 border-b border-gray-50 pb-4 flex justify-between">Home <span class="material-symbols-outlined text-gray-300 text-sm">chevron_right</span></a>
-        <a href="categories.html" class="text-base font-normal text-gray-900 border-b border-gray-50 pb-4 flex justify-between">Categories <span class="material-symbols-outlined text-gray-300 text-sm">chevron_right</span></a>
-        <a href="about.html" class="text-base font-normal text-gray-900 border-b border-gray-50 pb-4 flex justify-between">Our Story <span class="material-symbols-outlined text-gray-300 text-sm">chevron_right</span></a>
-        <a href="contact.html" class="text-base font-normal text-gray-900 flex justify-between border-b border-gray-50 pb-4">Contact <span class="material-symbols-outlined text-gray-300 text-sm">chevron_right</span></a>
-      </nav>
-    </aside>
-
-
-    <main class="pt-14">
-        <!-- Hero Section -->
-        <section class="relative h-[800px] flex items-center overflow-hidden">
+    <main class="pt-16">
+        <section class="relative h-[85vh] md:h-[90vh] flex items-end justify-center pb-20 overflow-hidden bg-surface-dim">
             <div class="absolute inset-0 z-0">
-                <img src="/assets/mrt-hero.png" alt="MRT International Global Sourcing" class="w-full h-full object-cover contrast-[1.05]" fetchpriority="high">
-                <div class="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent flex"></div>
+                <img src="/assets/mrt-hero.png" alt="Editorial Collection" class="w-full h-full object-cover parallax-img opacity-90 mix-blend-multiply">
+                <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-80"></div>
             </div>
             
-            <div class="container mx-auto px-4 md:px-8 relative z-10">
-                <div class="max-w-lg bg-white/55 backdrop-blur-2xl p-5 md:p-10 rounded-2xl md:rounded-3xl border border-white/80 shadow-xl shadow-primary/10 mx-4 md:mx-0 mt-20 md:mt-0">
-                    <!-- Eyebrow pill -->
-                    <div class="inline-flex items-center gap-2 mb-5 px-3 py-1.5 bg-primary/10 rounded-full border border-primary/20">
-                        <span class="material-symbols-outlined text-primary text-sm">public</span>
-                        <span class="text-primary font-black uppercase tracking-[0.35em] text-[9px]">Smart Global Sourcing</span>
-                    </div>
-
-                    <h1 class="text-3xl md:text-5xl font-headline text-gray-900 leading-[1.1] mb-3">Welcome to<br><i class="text-primary font-normal">MRT International</i></h1>
-
-                    <p class="text-gray-600 font-body mb-6 text-sm md:text-base leading-relaxed">Your trusted partner for smart online shopping &amp; global sourcing — quality products, competitive pricing, all in one place.</p>
-
-                    <div class="flex flex-wrap gap-3">
-                        <button class="bg-primary text-white px-6 py-3 rounded-xl text-xs font-black uppercase tracking-[0.2em] hover:opacity-90 hover:-translate-y-0.5 transition-all duration-300 shadow-lg shadow-primary/30">Discover Shopping</button>
-                        <button class="bg-white/70 text-gray-700 border border-gray-200 px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-[0.2em] hover:bg-white hover:border-primary/30 transition-all duration-300">Learn More</button>
-                    </div>
-                </div>
+            <div class="container mx-auto px-6 relative z-10 text-center reveal-up">
+                <span class="text-primary font-semibold uppercase tracking-[0.4em] text-[10px] mb-4 block">New Arrivals</span>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-headline text-primary leading-[1.1] mb-6 font-medium tracking-tight">The Modern <br><i class="font-normal text-accent">Edit.</i></h1>
+                <a href="categories.html" class="inline-block bg-primary text-surface px-8 py-4 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-primary-light transition-all duration-300">Shop The Collection</a>
             </div>
         </section>
 
-        <section class="py-16 bg-surface border-y border-outline-variant/10">
-            <div class="mb-10 text-center px-4">
-                <h3 class="text-xs font-black uppercase tracking-[0.4em] text-primary mb-2 opacity-60">Global Trust Network</h3>
-                <p class="text-2xl font-headline italic text-gray-900">Trusted by Customers Across UAE & Beyond</p>
-            </div>
-            <div class="px-8 max-w-screen-2xl mx-auto flex flex-wrap justify-center gap-16 text-sm font-bold tracking-[0.2em] uppercase text-on-surface-variant/70">
-                <div class="flex items-center space-x-4 group cursor-default">
-                    <span class="material-symbols-outlined text-primary text-2xl group-hover:scale-110 transition-transform">verified</span>
-                    <span class="serif italic">Quality Assured</span>
-                </div>
-                <div class="flex items-center space-x-4 group cursor-default">
-                    <span class="material-symbols-outlined text-primary text-2xl group-hover:scale-110 transition-transform">local_shipping</span>
-                    <span class="serif italic">Reliable Delivery</span>
-                </div>
-                <div class="flex items-center space-x-4 group cursor-default">
-                    <span class="material-symbols-outlined text-primary text-2xl group-hover:scale-110 transition-transform">lock_person</span>
-                    <span class="serif italic">Secure Payments</span>
-                </div>
-                <div class="flex items-center space-x-4 group cursor-default">
-                    <span class="material-symbols-outlined text-primary text-2xl group-hover:scale-110 transition-transform">star</span>
-                    <span class="serif italic">Highly Recommended</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-16 md:py-32 bg-white" id="categories">
-            <div class="max-w-screen-2xl mx-auto px-4 md:px-8 text-center">
-                <div class="flex flex-col items-center mb-20 reveal-up">
-                    <span class="text-primary font-bold uppercase tracking-[0.5em] text-xs mb-4 block">Boutique Pillars</span>
-                    <h2 class="text-6xl md:text-8xl font-headline italic leading-[0.85] tracking-tighter">Discover the <i>Collections</i></h2>
-                    <a href="categories.html" class="mt-8 group flex items-center gap-4 text-[11px] font-black uppercase tracking-[0.3em] text-gray-400 hover:text-primary transition-all">
-                        Full Inventory <span class="w-12 h-[1px] bg-gray-200 group-hover:w-20 group-hover:bg-primary transition-all"></span>
+        <section class="py-24 md:py-32 bg-surface" id="categories">
+            <div class="max-w-screen-2xl mx-auto px-6 md:px-12">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal-up border-b border-outline/20 pb-8">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-headline text-primary tracking-tight">Curated <i class="text-accent font-normal">Finds</i></h2>
+                    </div>
+                    <a href="categories.html" class="hidden md:flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-all">
+                        View All <span class="w-8 h-[1px] bg-primary/40"></span>
                     </a>
                 </div>
                 
-                <div class="max-w-screen-xl mx-auto px-8 md:px-20">
-                    <div id="avory-categories-grid" class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
-                        <!-- Dynamic Grid Rendered in main.js -->
+                <div id="avory-categories-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
                     </div>
-                </div>
             </div>
         </section>
 
-        <!-- ALL 7 CAROUSELS -->
-        <div id="category-carousels-container">
-            <!-- 1. Home & Kitchen -->
-            <section class="py-24 bg-surface-container-low overflow-hidden">
-                <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
-                    <h2 class="text-4xl font-headline italic">Modern <i>Kitchen</i></h2>
-                    <div class="section-nav flex items-center space-x-6">
-                        <button class="nav-prev hover:text-primary transition-all duration-300" data-target="home-kitchen-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
-                        <button class="nav-next hover:text-primary transition-all duration-300" data-target="home-kitchen-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
+        <div id="category-carousels-container" class="bg-surface-variant py-20">
+            <section class="pb-24 overflow-hidden">
+                <div class="px-6 md:px-12 max-w-screen-2xl mx-auto flex justify-between items-center mb-10 reveal-up">
+                    <h3 class="text-2xl font-headline text-primary">Trending Now</h3>
+                    <div class="flex gap-4">
+                        <button class="nav-prev w-10 h-10 rounded-full border border-outline/30 flex items-center justify-center hover:bg-primary hover:text-surface transition-all"><span class="material-symbols-outlined text-sm">arrow_back</span></button>
+                        <button class="nav-next w-10 h-10 rounded-full border border-outline/30 flex items-center justify-center hover:bg-primary hover:text-surface transition-all"><span class="material-symbols-outlined text-sm">arrow_forward</span></button>
                     </div>
                 </div>
-                <div id="home-kitchen-carousel" class="px-8 pb-12 peek-container"></div>
-            </section>
-
-            <!-- 2. Health & Wellness -->
-            <section class="py-24 bg-surface overflow-hidden">
-                <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
-                    <h2 class="text-4xl font-headline italic">Health & <i>Wellness</i></h2>
-                    <div class="section-nav flex items-center space-x-6">
-                        <button class="nav-prev hover:text-primary transition-all duration-300" data-target="health-wellness-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
-                        <button class="nav-next hover:text-primary transition-all duration-300" data-target="health-wellness-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
-                    </div>
-                </div>
-                <div id="health-wellness-carousel" class="px-8 pb-12 peek-container"></div>
-            </section>
-
-            <!-- 3. Beauty & Personal Care -->
-            <section class="py-24 bg-surface-container-low overflow-hidden">
-                <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
-                    <h2 class="text-4xl font-headline italic">Beauty & <i>Personal Care</i></h2>
-                    <div class="section-nav flex items-center space-x-6">
-                        <button class="nav-prev hover:text-primary transition-all duration-300" data-target="beauty-personal-care-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
-                        <button class="nav-next hover:text-primary transition-all duration-300" data-target="beauty-personal-care-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
-                    </div>
-                </div>
-                <div id="beauty-personal-care-carousel" class="px-8 pb-12 peek-container"></div>
-            </section>
-
-            <!-- 4. Pet Supplies -->
-            <section class="py-24 bg-surface overflow-hidden">
-                <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
-                    <h2 class="text-4xl font-headline italic">Pet <i>Curations</i></h2>
-                    <div class="section-nav flex items-center space-x-6">
-                        <button class="nav-prev hover:text-primary transition-all duration-300" data-target="pet-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
-                        <button class="nav-next hover:text-primary transition-all duration-300" data-target="pet-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
-                    </div>
-                </div>
-                <div id="pet-carousel" class="px-8 pb-12 peek-container"></div>
-            </section>
-
-            <!-- 5. Baby & Kids Essentials -->
-            <section class="py-24 bg-surface-container-low overflow-hidden">
-                <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
-                    <h2 class="text-4xl font-headline italic">Baby & Kids <i>Essentials</i></h2>
-                    <div class="section-nav flex items-center space-x-6">
-                        <button class="nav-prev hover:text-primary transition-all duration-300" data-target="baby-kids-essentials-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
-                        <button class="nav-next hover:text-primary transition-all duration-300" data-target="baby-kids-essentials-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
-                    </div>
-                </div>
-                <div id="baby-kids-essentials-carousel" class="px-8 pb-12 peek-container"></div>
-            </section>
-
-            <!-- 6. Electronics Accessories -->
-            <section class="py-24 bg-surface overflow-hidden">
-                <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
-                    <h2 class="text-4xl font-headline italic">Tech <i>Companions</i></h2>
-                    <div class="section-nav flex items-center space-x-6">
-                        <button class="nav-prev hover:text-primary transition-all duration-300" data-target="electronics-accessories-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
-                        <button class="nav-next hover:text-primary transition-all duration-300" data-target="electronics-accessories-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
-                    </div>
-                </div>
-                <div id="electronics-accessories-carousel" class="px-8 pb-12 peek-container"></div>
-            </section>
-
-            <!-- 7. Sports & Fitness -->
-            <section class="py-24 bg-surface-container-low overflow-hidden">
-                <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
-                    <h2 class="text-4xl font-headline italic">Peak <i>Performance</i></h2>
-                    <div class="section-nav flex items-center space-x-6">
-                        <button class="nav-prev hover:text-primary transition-all duration-300" data-target="sports-fitness-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
-                        <button class="nav-next hover:text-primary transition-all duration-300" data-target="sports-fitness-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
-                    </div>
-                </div>
-                <div id="sports-fitness-carousel" class="px-8 pb-12 peek-container"></div>
+                <div id="bestsellers-carousel" class="px-6 md:px-12 pb-4 flex gap-6 overflow-x-auto hide-scrollbar snap-x snap-mandatory"></div>
             </section>
         </div>
-
-        <!-- NEW: Why Choose Us (6-Point Grid) -->
-        <section class="py-32 bg-surface">
-            <div class="container mx-auto px-8 max-w-screen-xl">
-                <div class="mb-20 text-center reveal-up">
-                    <span class="text-primary font-bold uppercase tracking-[0.5em] text-xs mb-4 block">Proven Performance</span>
-                    <h2 class="text-6xl font-headline italic">Why Choose <i>MRT International</i></h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-                    <div class="reveal-up">
-                        <span class="material-symbols-outlined text-primary text-5xl mb-6">public</span>
-                        <h4 class="text-xl font-headline mb-4 italic">Global Sourcing Expertise</h4>
-                        <p class="text-on-surface-variant font-body">Connecting with reliable international suppliers to bring you the best products.</p>
-                    </div>
-                    <div class="reveal-up">
-                        <span class="material-symbols-outlined text-primary text-5xl mb-6">payments</span>
-                        <h4 class="text-xl font-headline mb-4 italic">Competitive Pricing</h4>
-                        <p class="text-on-surface-variant font-body">Our efficient model ensures you get great value for your money.</p>
-                    </div>
-                    <div class="reveal-up">
-                        <span class="material-symbols-outlined text-primary text-5xl mb-6">verified_user</span>
-                        <h4 class="text-xl font-headline mb-4 italic">Quality Assurance</h4>
-                        <p class="text-on-surface-variant font-body">Focused on delivering products that meet strict expectations.</p>
-                    </div>
-                    <div class="reveal-up">
-                        <span class="material-symbols-outlined text-primary text-5xl mb-6">group</span>
-                        <h4 class="text-xl font-headline mb-4 italic">Customer-Centric Approach</h4>
-                        <p class="text-on-surface-variant font-body">Your satisfaction is our priority — always.</p>
-                    </div>
-                    <div class="reveal-up">
-                        <span class="material-symbols-outlined text-primary text-5xl mb-6">electric_bolt</span>
-                        <h4 class="text-xl font-headline mb-4 italic">Fast & Reliable Process</h4>
-                        <p class="text-on-surface-variant font-body">From order to delivery, we ensure a smooth experience.</p>
-                    </div>
-                    <div class="reveal-up">
-                        <span class="material-symbols-outlined text-primary text-5xl mb-6">tips_and_updates</span>
-                        <h4 class="text-xl font-headline mb-4 italic">Continuous Innovation</h4>
-                        <p class="text-on-surface-variant font-body">Adapting to market trends to serve you better every day.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- World Reflections Section -->
-        <section id="reviews" class="py-16 md:py-24 lg:py-32 px-4 md:px-8 lg:px-10 bg-surface/50 overflow-hidden relative border-y border-outline-variant/10 text-on-surface">
-            <div class="max-w-screen-2xl mx-auto">
-                <div class="flex flex-col items-center text-center mb-12 md:mb-16 lg:mb-24 reveal-up">
-                    <span class="text-primary font-bold uppercase tracking-[0.4em] md:tracking-[0.5em] text-[10px] md:text-xs mb-4 md:mb-6 block">Global Feedback</span>
-                    <h2 class="text-[2.5rem] leading-[0.95] md:text-6xl lg:text-8xl font-headline tracking-tight italic mb-5 md:mb-6 lg:mb-8 text-on-surface">Our Global <span class="text-primary">Community</span></h2>
-                    <p class="text-on-surface-variant max-w-xs md:max-w-2xl mx-auto text-base md:text-lg lg:text-xl italic opacity-80">Trusted by boutique partners and elite customers across the USA, UAE & beyond.</p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-16">
-                    <div class="space-y-6 md:space-y-8 lg:space-y-12 rounded-[2rem] md:rounded-[2.5rem] lg:rounded-none border border-primary/10 md:border-white/60 lg:border-transparent bg-white/70 md:bg-white/55 lg:bg-transparent backdrop-blur-xl lg:backdrop-blur-none p-5 md:p-7 lg:p-0 shadow-[0_20px_60px_rgba(15,23,42,0.08)] md:shadow-[0_30px_80px_rgba(15,23,42,0.08)] lg:shadow-none">
-                        <div class="flex items-center gap-3 md:gap-4 lg:gap-6 mb-2 md:mb-4 lg:mb-12 reveal-up">
-                            <div class="flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-2xl bg-primary/10 ring-1 ring-primary/15 text-sm md:text-base font-black tracking-[0.2em] text-primary shadow-inner shadow-primary/10">US</div>
-                            <span class="text-3xl filter grayscale drop-shadow-sm">🇺🇸</span>
-                            <div class="min-w-0 flex-1 text-left">
-                                <span class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-[9px] md:text-[10px] font-black uppercase tracking-[0.28em] text-primary">North America</span>
-                                <div class="mt-2 flex items-center gap-3">
-                                    <span class="hidden lg:block w-16 h-[2px] bg-primary/30"></span>
-                                    <span class="text-xs md:text-sm font-bold uppercase tracking-[0.28em] md:tracking-[0.4em] opacity-60">United States Market</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="testimonials-us" class="grid grid-cols-1 gap-4 md:gap-5 lg:gap-10">
-                            <!-- Dynamic Rendering -->
-                        </div>
-                    </div>
-                    <div class="space-y-6 md:space-y-8 lg:space-y-12 rounded-[2rem] md:rounded-[2.5rem] lg:rounded-none border border-primary/10 md:border-white/60 lg:border-transparent bg-white/70 md:bg-white/55 lg:bg-transparent backdrop-blur-xl lg:backdrop-blur-none p-5 md:p-7 lg:p-0 shadow-[0_20px_60px_rgba(15,23,42,0.08)] md:shadow-[0_30px_80px_rgba(15,23,42,0.08)] lg:shadow-none">
-                        <div class="flex items-center gap-3 md:gap-4 lg:gap-6 mb-2 md:mb-4 lg:mb-12 reveal-up">
-                            <div class="flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-2xl bg-primary/10 ring-1 ring-primary/15 text-[11px] md:text-sm font-black tracking-[0.18em] text-primary shadow-inner shadow-primary/10">UAE</div>
-                            <span class="text-3xl filter grayscale drop-shadow-sm">🇦🇪</span>
-                            <div class="min-w-0 flex-1 text-left">
-                                <span class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-[9px] md:text-[10px] font-black uppercase tracking-[0.28em] text-primary">Middle East</span>
-                                <div class="mt-2 flex items-center gap-3">
-                                    <span class="hidden lg:block w-16 h-[2px] bg-primary/30"></span>
-                                    <span class="text-xs md:text-sm font-bold uppercase tracking-[0.28em] md:tracking-[0.4em] opacity-60">UAE & Middle East</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="testimonials-ae" class="grid grid-cols-1 gap-4 md:gap-5 lg:gap-10">
-                            <!-- Dynamic Rendering -->
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="max-w-4xl mx-auto text-center py-12 md:py-16 lg:py-24 mt-12 md:mt-16 lg:mt-24 border-t border-outline-variant/10">
-                    <p class="text-lg md:text-xl lg:text-2xl text-on-surface-variant font-body leading-relaxed opacity-70">"MRT International is dedicated to bridging global markets with artisanal quality and localized excellence."</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="py-16 md:py-32 px-4 md:px-8 mb-16 md:mb-24 bg-primary-container/10 overflow-hidden relative" id="cta">
-            <div class="max-w-screen-xl mx-auto rounded-[2.5rem] md:rounded-[4rem] p-8 md:p-20 relative flex flex-col items-center bg-white/40 backdrop-blur-2xl border border-white shadow-2xl reveal-up">
-                <div class="relative z-10 w-full text-center">
-                    <span class="text-primary font-bold uppercase tracking-[0.5em] text-xs mb-6 block">The Legacy</span>
-                    <h2 class="text-6xl font-headline text-primary leading-tight mb-8 italic">Your Gateway to Global Shopping</h2>
-                    <p class="text-on-surface-variant font-body mb-12 text-2xl max-w-2xl mx-auto leading-relaxed">Shop Smart. Shop Global. Shop MRT.</p>
-                    <div class="flex flex-wrap gap-6 justify-center">
-                        <button class="bg-primary text-on-primary px-12 py-5 rounded-2xl font-bold uppercase tracking-[0.2em] text-sm hover:scale-110 shadow-xl transition-all duration-500">Explore Portfolio</button>
-                        <button class="bg-surface text-primary border border-primary/20 px-12 py-5 rounded-2xl font-bold uppercase tracking-[0.2em] text-sm hover:bg-primary/5 transition-all duration-500 shadow-sm">Partner Network</button>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <!-- Footer -->
-    <footer id="contact" class="w-full rounded-t-[5rem] mt-20 bg-surface-container-high border-t border-outline-variant/10 text-on-surface">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-16 px-6 md:px-16 py-12 md:py-24 max-w-screen-2xl mx-auto">
-            <div class="flex flex-col">
-                <a href="index.html" data-logo class="flex items-center h-10 md:h-12 mb-8"></a>
-                <p class="text-on-surface-variant text-base font-body leading-relaxed opacity-70 italic">Delivering global sourcing excellence, quality reliability, and market-leading value to customers across the globe.</p>
+    <footer class="bg-primary text-surface py-20 px-6 md:px-12">
+        <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 border-b border-surface/10 pb-16">
+            <div class="space-y-6">
+                <span class="text-3xl font-headline font-bold tracking-widest uppercase">MRT</span>
+                <p class="text-surface/60 font-body text-sm leading-relaxed max-w-sm">Curating the exceptional. Global sourcing elevated for the modern lifestyle.</p>
             </div>
             
-            <div>
-                <h4 class="text-sm tracking-[0.3em] uppercase text-primary font-bold mb-8">Boutique Pillars</h4>
-                <ul class="space-y-4">
-                    <li><a href="categories.html" class="text-on-surface-variant hover:text-primary transition-colors text-base opacity-90 italic">Home & Kitchen</a></li>
-                    <li><a href="categories.html" class="text-on-surface-variant hover:text-primary transition-colors text-base opacity-90 italic">Health & Wellness</a></li>
-                    <li><a href="categories.html" class="text-on-surface-variant hover:text-primary transition-colors text-base opacity-90 italic">Essential Selection</a></li>
+            <div class="space-y-6">
+                <h4 class="text-[10px] tracking-[0.3em] uppercase text-surface/40 font-bold">Navigation</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#" class="hover:text-accent transition-colors">Shop All</a></li>
+                    <li><a href="#" class="hover:text-accent transition-colors">Our Story</a></li>
+                    <li><a href="#" class="hover:text-accent transition-colors">Contact</a></li>
                 </ul>
             </div>
 
-            <div>
-                <h4 class="text-sm tracking-[0.3em] uppercase text-primary font-bold mb-8">Corporate</h4>
-                <ul class="space-y-4">
-                    <li><a href="about.html" class="text-on-surface-variant hover:text-primary transition-all text-base opacity-90 italic">Our Story</a></li>
-                    <li><a href="about.html" class="text-on-surface-variant hover:text-primary transition-all text-base opacity-90 italic">Strategic Vision</a></li>
-                    <li><a href="about.html" class="text-on-surface-variant hover:text-primary transition-all text-base opacity-90 italic">Why MRT?</a></li>
-                </ul>
+            <div class="space-y-6">
+                <h4 class="text-[10px] tracking-[0.3em] uppercase text-surface/40 font-bold">Newsletter</h4>
+                <div class="flex border-b border-surface/20 pb-2">
+                    <input type="email" placeholder="Enter your email" class="bg-transparent border-none outline-none text-sm w-full placeholder:text-surface/30">
+                    <button class="text-[10px] uppercase tracking-widest font-bold hover:text-accent transition-colors">Join</button>
+                </div>
             </div>
-
-            <div>
-                <h4 class="text-sm tracking-[0.3em] uppercase text-primary font-bold mb-8">Get In Touch</h4>
-                <ul class="space-y-4">
-                    <li class="flex items-center space-x-3 text-on-surface-variant opacity-70 italic">
-                        <span class="material-symbols-outlined text-sm text-primary">location_on</span>
-                        <span>Wyoming, USA</span>
-                    </li>
-                    <li class="flex items-center space-x-3 text-on-surface-variant opacity-70 italic">
-                        <span class="material-symbols-outlined text-sm text-primary">mail</span>
-                        <a href="mailto:Info@mrtinternationalholding.com" class="hover:text-primary transition-colors">Info@mrtinternationalholding.com</a>
-                    </li>
-                    <li class="flex items-center space-x-3 text-on-surface-variant opacity-70 italic">
-                        <span class="material-symbols-outlined text-sm text-primary">call</span>
-                        <a href="tel:+19044594398" class="hover:text-primary transition-colors">+1 904 459 4398</a>
-                    </li>
-                    <li class="flex items-center space-x-3 pt-4">
-                        <a href="https://wa.me/19044594398" class="bg-primary/10 p-2 rounded-lg text-primary hover:bg-primary hover:text-white transition-all duration-300" aria-label="WhatsApp">
-                            <span class="material-symbols-outlined">add_call</span>
-                        </a>
-                        <a href="#" class="bg-primary/10 p-2 rounded-lg text-primary hover:bg-primary hover:text-white transition-all duration-300" aria-label="Facebook">
-                            <span class="material-symbols-outlined">facebook</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="px-16 py-12 border-t border-outline-variant/10 text-center">
-            <p class="text-on-surface-variant font-body text-xs tracking-[0.4em] uppercase opacity-40">© 2024 MRT International Holding LLC. All Rights Reserved.</p>
         </div>
     </footer>
-    <!-- App Bottom Navigation (Mobile Only) -->
-    <nav class="md:hidden fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-2xl border-t border-gray-100/50 z-[90] pb-safe">
-        <div class="grid grid-cols-4 px-6 py-4">
-            <a href="index.html" class="flex flex-col items-center gap-1.5 transition-all text-primary">
-                <span class="material-symbols-outlined text-[26px]">home</span>
-                <span class="text-[9.5px] font-extrabold uppercase tracking-widest leading-none">Home</span>
+
+    <nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface/90 backdrop-blur-xl border-t border-outline/10 z-[90] pb-safe px-6 py-3">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="flex flex-col items-center gap-1 text-primary">
+                <span class="material-symbols-outlined text-[24px]">home</span>
+                <span class="text-[8px] font-bold uppercase tracking-widest">Home</span>
             </a>
-            <a href="categories.html" class="flex flex-col items-center gap-1.5 transition-all text-gray-400">
-                <span class="material-symbols-outlined text-[26px]">grid_view</span>
-                <span class="text-[9.5px] font-bold uppercase tracking-widest leading-none">Categories</span>
+            <a href="categories.html" class="flex flex-col items-center gap-1 text-on-surface-variant">
+                <span class="material-symbols-outlined text-[24px]">grid_view</span>
+                <span class="text-[8px] font-bold uppercase tracking-widest">Shop</span>
             </a>
-            <a href="contact.html" class="flex flex-col items-center gap-1.5 transition-all text-gray-400">
-                <span class="material-symbols-outlined text-[26px]">alternate_email</span>
-                <span class="text-[9.5px] font-bold uppercase tracking-widest leading-none">Contact</span>
-            </a>
-            <a href="about.html" class="flex flex-col items-center gap-1.5 transition-all text-gray-400">
-                <span class="material-symbols-outlined text-[26px]">info</span>
-                <span class="text-[9.5px] font-bold uppercase tracking-widest leading-none">About</span>
+            <a href="cart.html" class="flex flex-col items-center gap-1 text-on-surface-variant">
+                <span class="material-symbols-outlined text-[24px]">shopping_bag</span>
+                <span class="text-[8px] font-bold uppercase tracking-widest">Cart</span>
             </a>
         </div>
     </nav>
