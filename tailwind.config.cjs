@@ -8,17 +8,16 @@ module.exports = {
     extend: {
       colors: {
         background: '#ffffff',
-        text: '#121212',
-        muted: '#757575',
-        border: '#e5e5e5',
-        // The requested slight color change for buttons (a deep burnt orange/taupe)
-        "brand-btn": '#b45f06', 
-        "brand-btn-hover": '#924c05',
+        text: '#111111',
+        // Your new warm golden-orange/yellowish button color
+        "brand-btn": '#d97706', // Premium Amber/Orange
+        "brand-btn-hover": '#b45309', // Slightly darker for the hover effect
       },
       fontFamily: {
-        // Avory-style classic grotesque sans and elegant serif
-        sans: ['"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
-        serif: ['"Playfair Display"', 'Times', 'serif'],
+        sans: ['"Inter"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+      },
+      letterSpacing: {
+        widest: '.2em',
       }
     },
   },
