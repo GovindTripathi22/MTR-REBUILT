@@ -2,166 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Hide scrollbars for ultra-clean carousels */
-.hide-scrollbar::-webkit-scrollbar { display: none; }
-.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-/* ── AVORY-STYLE EDITORIAL PRODUCT CARDS ── */
-.mrt-product-card {
+/* Boutique Product Cards */
+.boutique-card {
   display: flex;
   flex-direction: column;
-  background: transparent;
+  position: relative;
   cursor: pointer;
-  position: relative;
-  group: true;
 }
 
-.mrt-card-img-wrap {
-  position: relative;
+.boutique-img-wrap {
   width: 100%;
-  aspect-ratio: 3/4; /* Taller, fashion-oriented aspect ratio */
-  background: #f4f2ee; /* Muted stone background */
+  aspect-ratio: 3/4; /* Standard tall fashion ratio */
+  background-color: #f7f7f7;
+  position: relative;
   overflow: hidden;
-  border-radius: 2px;
+  margin-bottom: 12px;
 }
 
-.mrt-card-img {
+.boutique-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.2, 1, 0.2, 1);
+  transition: transform 0.6s ease;
 }
 
-.mrt-product-card:hover .mrt-card-img {
-  transform: scale(1.05);
+.boutique-card:hover .boutique-img {
+  transform: scale(1.03);
 }
 
-/* Minimalist Tags */
-.mrt-badge-row {
+/* The custom button color requested */
+.boutique-quick-add {
   position: absolute;
-  top: 10px; left: 10px; right: 10px;
-  display: flex; justify-content: space-between;
-  z-index: 10;
-}
-
-.mrt-badge-pill {
-  background: #111;
-  color: #fff;
-  font-size: 8px;
-  font-weight: 700;
-  padding: 4px 8px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: theme('colors.brand-btn');
+  color: white;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  font-weight: bold;
+  transform: translateY(100%);
+  transition: transform 0.3s ease, background-color 0.2s ease;
 }
 
-/* Hover Quick View - Desktop */
-.mrt-img-overlay {
-  position: absolute; inset: 0;
-  background: rgba(250, 249, 246, 0.4);
-  backdrop-filter: blur(2px);
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; transition: opacity 0.4s ease;
-}
-
-.mrt-product-card:hover .mrt-img-overlay { opacity: 1; }
-
-.mrt-qv-overlay-btn {
-  background: #111;
-  color: #fff !important;
-  font-size: 9px;
-  padding: 12px 24px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  transform: translateY(10px);
-  transition: all 0.4s cubic-bezier(0.2, 1, 0.2, 1);
-}
-
-.mrt-product-card:hover .mrt-qv-overlay-btn {
+.boutique-card:hover .boutique-quick-add {
   transform: translateY(0);
 }
 
-.mrt-qv-overlay-btn:hover {
-  background: var(--accent, #8c6b4a);
+.boutique-quick-add:hover {
+  background-color: theme('colors.brand-btn-hover');
 }
 
-/* Typography on Cards */
-.mrt-card-body {
-  padding: 16px 0;
-  text-align: center;
-}
-
-.mrt-card-name {
+.boutique-title {
   font-size: 13px;
-  font-weight: 500;
-  color: #111 !important;
-  margin-bottom: 6px;
+  color: #121212;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.mrt-price-row {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
+.boutique-price {
   font-size: 13px;
-}
-
-.mrt-price { color: #111; font-weight: 400; }
-.mrt-old-price { color: #a0a0a0; text-decoration: line-through; }
-
-/* ── AVORY MOBILE APP OVERRIDES ── */
-@media (max-width: 767px) {
-  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
-  
-  /* Seamless 2-Column Grid Feed */
-  #avory-categories-grid, #bestsellers-grid, #category-products-container {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
-    padding: 0 4px !important;
-  }
-  
-  .mrt-product-card {
-    margin-bottom: 16px;
-  }
-  
-  .mrt-card-body { padding: 10px 4px; text-align: left; }
-  .mrt-price-row { justify-content: flex-start; }
-  
-  /* Quick View Bottom Sheet Mechanics */
-  #mrt-qv-modal { align-items: flex-end !important; padding: 0 !important; }
-  
-  .mrt-qv-panel { 
-    max-height: 85vh !important; 
-    width: 100% !important; 
-    margin: 0 !important; 
-    border-radius: 24px 24px 0 0 !important; 
-    transform: translateY(100%) !important; 
-    transition: transform 0.4s cubic-bezier(0.2, 1, 0.2, 1) !important;
-  }
-
-  #mrt-qv-modal.is-open .mrt-qv-panel { transform: translateY(0) !important; }
-  
-  .mrt-qv-img-col { 
-    min-height: 300px !important; 
-    padding: 0 !important; 
-    background: #f4f2ee !important;
-  }
-  
-  .mrt-qv-img-col img { object-fit: cover; width: 100%; height: 100%; }
-  
-  .mrt-qv-content-col { padding: 24px 20px 100px 20px !important; }
-
-  /* Sticky Buy Button Mobile */
-  .mrt-qv-content-col > div:last-child {
-    position: fixed !important; bottom: 0 !important; left: 0 !important;
-    width: 100% !important; background: rgba(250, 249, 246, 0.98) !important;
-    padding: 16px 24px calc(env(safe-area-inset-bottom) + 16px) 24px !important;
-    border-top: 1px solid rgba(0,0,0,0.05) !important;
-  }
+  color: #757575;
 }
