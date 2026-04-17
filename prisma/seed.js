@@ -107,10 +107,17 @@ const products = [
 ];
 
 const testimonials = [
-  { name: 'Michael T.', location: 'Texas, USA', quote: 'Superior Craftsmanship', text: 'Superior craftsmanship and world-class logistics. MRT International delivers excellence in every shipment.', region: 'us' },
-  { name: 'Jessica L.', location: 'California, USA', quote: 'Boutique Curation', text: 'The boutique catalog is curated with extreme care. Every product feels like a luxury item tailored for elite needs.', region: 'us' },
-  { name: 'Ahmed K.', location: 'Abu Dhabi, UAE', quote: 'Professional Sourcing', text: 'Their Elite Sourcing Kit is a game changer for our trade delegations. Truly professional and localized excellence.', region: 'ae' },
-  { name: 'Sara M.', location: 'Dubai, UAE', quote: 'World-Class Delivery', text: 'Exceptional delivery speed to the UAE. The product quality exceeded our high standards for artisanal skincare.', region: 'ae' }
+  // USA
+  { name: 'Michael T.', location: 'Texas, USA', quote: 'Impressed with the Quality', text: 'I wasn’t expecting this level of quality at this price point. Everything arrived in perfect condition. Will definitely order again.', region: 'us', rating: 5, sortOrder: 1 },
+  { name: 'Jessica L.', location: 'California, USA', quote: 'Smooth & Reliable Experience', text: 'The ordering process was simple, and the delivery was faster than expected. Great service overall.', region: 'us', rating: 5, sortOrder: 2 },
+  { name: 'David R.', location: 'New York, USA', quote: 'Great Online Store', text: 'I’ve tried several online stores, but this one stands out for its professionalism and product selection. Highly recommended.', region: 'us', rating: 5, sortOrder: 3 },
+  { name: 'Emily S.', location: 'Florida, USA', quote: 'Excellent Value for Money', text: 'Affordable pricing without compromising on quality. Exactly what I was looking for.', region: 'us', rating: 5, sortOrder: 4 },
+  
+  // UAE
+  { name: 'Ahmed K.', location: 'Abu Dhabi', quote: 'Very Professional Service', text: 'The team was very responsive, and the entire process was handled professionally. Great experience.', region: 'ae', rating: 5, sortOrder: 5 },
+  { name: 'Sara M.', location: 'Dubai', quote: 'Fast Delivery & Good Quality', text: 'Product quality exceeded expectations, and delivery was on time. Will recommend to others.', region: 'ae', rating: 5, sortOrder: 6 },
+  { name: 'Hassan A.', location: 'Sharjah', quote: 'Reliable & Trustworthy', text: 'Everything was exactly as described. It’s good to see a company that delivers what it promises.', region: 'ae', rating: 5, sortOrder: 7 },
+  { name: 'Fatima R.', location: 'Al Ain', quote: 'Seamless Shopping Experience', text: 'Easy to navigate website and smooth checkout process. Very satisfied.', region: 'ae', rating: 5, sortOrder: 8 }
 ];
 
 async function main() {
@@ -121,6 +128,7 @@ async function main() {
   await prisma.product.deleteMany({});
   await prisma.categoryTheme.deleteMany({});
   await prisma.category.deleteMany({});
+  await prisma.testimonial.deleteMany({});
   console.log('✅ Database cleared');
 
   // Create admin user

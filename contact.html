@@ -4,132 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Contact Us | MRT International</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,400;1,600&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0..1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/style.css">
     <script type="module" src="/src/main.js"></script>
 </head>
-<body class="bg-background antialiased opacity-0 transition-opacity duration-500" onload="document.body.classList.remove('opacity-0')">
-    
-    <header class="w-full bg-white border-b border-gray-100 py-5 px-6 md:px-12 flex items-center justify-between sticky top-0 z-50">
-        <a href="index.html" class="text-2xl md:text-3xl font-heading font-bold text-[#1e293b] tracking-wide">MRT.INTL</a>
-        
-        <nav class="hidden lg:flex gap-8">
-            <a href="index.html" class="text-[15px] font-medium text-[#67768e] hover:text-brand-btn transition">Home</a>
-            <a href="categories.html" class="text-[15px] font-medium text-[#67768e] hover:text-brand-btn transition">Shop / Collections</a>
-            <a href="categories.html" class="text-[15px] font-medium text-[#67768e] hover:text-brand-btn transition">Categories</a>
-            <a href="about.html" class="text-[15px] font-medium text-[#67768e] hover:text-brand-btn transition">About</a>
-            <a href="contact.html" class="text-[15px] font-medium text-[#1e293b] hover:text-brand-btn transition">Contact</a>
-        </nav>
+<body onload="document.body.classList.add('loaded')">
 
-        <div class="flex items-center gap-5">
-            <a href="categories.html" class="hidden md:inline-flex items-center gap-2 bg-brand-btn hover:bg-brand-btn-hover text-white text-sm font-semibold py-3 px-7 rounded-lg transition-colors">
-                EXPLORE <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-            </a>
-            <button class="text-[#1e293b] hover:text-brand-btn transition lg:hidden">
-                <span class="material-symbols-outlined text-[28px]">menu</span>
-            </button>
-            <a href="cart.html" class="relative text-[#1e293b] hover:text-brand-btn transition">
-                <span class="material-symbols-outlined text-[28px]">shopping_bag</span>
-                <span class="cart-counter absolute -top-1 -right-2 bg-brand-btn text-white text-[10px] w-[18px] h-[18px] rounded-full flex items-center justify-center font-bold">0</span>
-            </a>
+    <header class="mrt-nav">
+        <a href="index.html" class="mrt-nav-logo">MRT.INTL</a>
+        <nav class="mrt-nav-links">
+            <a href="index.html">Home</a>
+            <a href="categories.html">Shop / Collections</a>
+            <div class="nav-dropdown-container">
+                <a href="categories.html" style="display:flex;align-items:center;gap:3px;">
+                    Categories <span class="material-symbols-outlined" style="font-size:17px;">expand_more</span>
+                </a>
+                <div class="nav-dropdown">
+                    <a href="category.html?c=home-kitchen"         class="nav-dropdown-item">Home &amp; Kitchen</a>
+                    <a href="category.html?c=beauty-personal-care" class="nav-dropdown-item">Beauty &amp; Personal Care</a>
+                    <a href="category.html?c=health-wellness"      class="nav-dropdown-item">Health &amp; Wellness</a>
+                    <a href="category.html?c=pet-supplies"         class="nav-dropdown-item">Pet Supplies</a>
+                    <a href="category.html?c=baby-kids-essentials" class="nav-dropdown-item">Baby &amp; Kids Essentials</a>
+                    <a href="category.html?c=electronics-accessories" class="nav-dropdown-item">Electronics &amp; Accessories</a>
+                    <a href="category.html?c=sports-fitness"       class="nav-dropdown-item">Sports &amp; Fitness</a>
+                </div>
+            </div>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+        <div class="mrt-nav-right">
+            <a href="categories.html" class="nav-cta">EXPLORE COLLECTIONS</a>
+            <button class="nav-menu-btn" id="mobileMenuToggle"><span class="material-symbols-outlined">menu</span></button>
         </div>
     </header>
 
-    <main>
-        <section class="py-20 bg-[#f9f6fe] border-b border-gray-100">
-            <div class="container mx-auto px-6 text-center">
-                <span class="text-[#67768e] font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">Connect</span>
-                <h1 class="text-5xl md:text-7xl font-heading font-bold text-[#1e293b] tracking-tight">Contact Us.</h1>
-            </div>
-        </section>
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-panel">
+            <button class="mobile-nav-close" id="mobileNavClose"><span class="material-symbols-outlined">close</span></button>
+            <a href="index.html">Home</a>
+            <a href="categories.html">Shop / Collections</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+        <div style="flex:1" id="mobileNavBackdrop"></div>
+    </div>
 
-        <section class="py-24 px-6 md:px-12 max-w-[1600px] mx-auto bg-white">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+    <main>
+        <section style="padding: 8rem 2.5rem; max-width: 1200px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;">
                 <div>
-                   <h2 class="text-3xl font-heading font-bold mb-8 text-[#1e293b] leading-tight">Get in Touch</h2>
-                   <p class="text-[#67768e] font-sans leading-relaxed text-sm md:text-base max-w-xl mb-12">
-                       For all inquiries regarding our collections, sourcing, or wholesale partnerships, please fill out the form or contact us directly.
-                   </p>
-                   
-                   <div class="space-y-6 text-sm text-[#1e293b]">
-                       <div>
-                           <h4 class="font-bold uppercase tracking-widest text-[10px] text-[#67768e] mb-2">Email</h4>
-                           <a href="mailto:info@mrtinternational.com" class="hover:text-brand-btn transition-colors">info@mrtinternational.com</a>
-                       </div>
-                       <div>
-                           <h4 class="font-bold uppercase tracking-widest text-[10px] text-[#67768e] mb-2">Phone</h4>
-                           <a href="tel:+18001234567" class="hover:text-brand-btn transition-colors">+1 (800) 123-4567</a>
-                       </div>
-                   </div>
+                    <p style="text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; color: var(--orange); font-weight: 700; margin-bottom: 2rem;">Get in Touch</p>
+                    <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 2.5rem; line-height: 1.1;">Connect With Us</h1>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--muted); margin-bottom: 4rem;">
+                        Whether you have a product suggestion, a partnership inquiry, or need assistance, our team is here to help.
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 2rem;">
+                        <div>
+                            <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--ink); margin-bottom: 0.5rem;">Email Support</p>
+                            <p style="font-family: 'Playfair Display', serif; font-size: 1.75rem;">support@mrt-intl.com</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <div>
-                    <form id="contact-form" class="space-y-8">
+                <div style="background: #fff; padding: 4rem; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(0,0,0,0.05);">
+                    <form id="contact-form" style="display: flex; flex-direction: column; gap: 2.5rem;">
                         <div>
-                            <input type="text" id="name" name="name" placeholder="Full Name" required class="w-full bg-transparent border-b border-gray-100 py-4 text-sm outline-none focus:border-[#f87c47] transition-colors placeholder:text-[#67768e] text-[#1e293b]">
+                            <label style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.75rem; color: var(--ink);">Full Name</label>
+                            <input type="text" name="name" required style="width: 100%; border: none; border-bottom: 1px solid var(--border); padding: 0.75rem 0; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--orange)'" onblur="this.style.borderColor='var(--border)'">
                         </div>
                         <div>
-                            <input type="email" id="email" name="email" placeholder="Email Address" required class="w-full bg-transparent border-b border-gray-100 py-4 text-sm outline-none focus:border-[#f87c47] transition-colors placeholder:text-[#67768e] text-[#1e293b]">
+                            <label style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.75rem; color: var(--ink);">Email Address</label>
+                            <input type="email" name="email" required style="width: 100%; border: none; border-bottom: 1px solid var(--border); padding: 0.75rem 0; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--orange)'" onblur="this.style.borderColor='var(--border)'">
                         </div>
                         <div>
-                            <textarea id="message" name="message" placeholder="Your Message" required rows="4" class="w-full bg-transparent border-b border-gray-100 py-4 text-sm outline-none focus:border-[#f87c47] transition-colors placeholder:text-[#67768e] text-[#1e293b] resize-none"></textarea>
+                            <label style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.75rem; color: var(--ink);">Message</label>
+                            <textarea name="message" required style="width: 100%; border: none; border-bottom: 1px solid var(--border); padding: 0.75rem 0; outline: none; transition: border-color 0.3s; min-height: 100px; resize: none;" onfocus="this.style.borderColor='var(--orange)'" onblur="this.style.borderColor='var(--border)'"></textarea>
                         </div>
-                        
-                        <p id="form-status" class="text-sm hidden"></p>
-
-                        <button id="contact-submit-btn" type="submit" class="w-full bg-[#1e293b] text-white py-4 text-[10px] uppercase tracking-widest font-bold hover:bg-[#f87c47] transition-colors rounded-lg">
-                            Send Message
-                        </button>
+                        <button type="submit" class="nav-cta" style="width: 100%; justify-content: center; padding: 1.25rem; font-size: 0.9rem;">SEND MESSAGE</button>
+                        <div id="form-status" style="display: none; text-align: center; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--orange);"></div>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-[#f9f6fe] pt-20 pb-10 border-t border-gray-200 mt-10">
-        <div class="max-w-[1600px] mx-auto px-6 md:px-12">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                
-                <div>
-                    <h4 class="text-lg font-heading font-bold text-[#1e293b] mb-6">Categories</h4>
-                    <ul class="space-y-4 text-[15px] text-[#67768e]">
-                        <li><a href="categories.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Home & Decor</a></li>
-                        <li><a href="categories.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Women</a></li>
-                        <li><a href="categories.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Men</a></li>
-                        <li><a href="categories.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Beauty</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-heading font-bold text-[#1e293b] mb-6">Customer Support</h4>
-                    <ul class="space-y-4 text-[15px] text-[#67768e]">
-                        <li><a href="mailto:support@mrt.intl" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">mail</span> support@mrt.intl</a></li>
-                        <li><a href="#" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Terms & Conditions</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-heading font-bold text-[#1e293b] mb-6">Company</h4>
-                    <ul class="space-y-4 text-[15px] text-[#67768e]">
-                        <li><a href="index.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Home</a></li>
-                        <li><a href="about.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> About</a></li>
-                        <li><a href="contact.html" class="hover:text-brand-btn transition flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">arrow_forward</span> Contact Us</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-3xl font-heading font-bold text-[#1e293b] mb-4 tracking-wide">MRT.INTL</h3>
-                    <p class="text-[15px] text-[#67768e] mb-6 leading-relaxed">
-                        Curated luxury finds from global marketplaces, brought together in one elegant space.
-                    </p>
-                </div>
-                
-            </div>
-            
-            <div class="border-t border-gray-200 pt-8 text-center">
-                <p class="text-sm text-[#67768e]">© 2026 MRT International. All rights reserved.</p>
+    <footer class="mrt-footer">
+        <div class="footer-grid">
+            <div style="grid-column: span 2;">
+                <p class="footer-brand-logo">MRT.INTL</p>
+                <p class="footer-brand-desc">Curating luxury since 2026.</p>
             </div>
         </div>
     </footer>
