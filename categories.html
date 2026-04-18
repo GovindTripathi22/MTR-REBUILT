@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Collections | MRT International</title>
+    <meta name="description" content="Explore curated collections of premium home, beauty, health, and lifestyle products from MRT International.">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,400;1,600&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-25..200" rel="stylesheet">
     <link rel="stylesheet" href="/src/style.css">
@@ -11,7 +12,7 @@
 </head>
 <body onload="document.body.classList.add('loaded')">
 
-    <!-- NAVBAR - Standardized -->
+    <!-- NAVBAR -->
     <header class="mrt-nav">
         <a href="index.html" class="mrt-nav-logo">MRT International</a>
         <nav class="mrt-nav-links">
@@ -36,78 +37,82 @@
         </nav>
         <div class="mrt-nav-right">
             <a href="categories.html" class="nav-cta">EXPLORE ALL</a>
-            <button class="nav-menu-btn" id="mobileMenuToggle"><span class="material-symbols-outlined">menu</span></button>
+            <button class="nav-menu-btn" id="mobileMenuToggle" aria-label="Open menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
         </div>
     </header>
 
     <!-- MOBILE NAV -->
     <div class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-panel">
-            <button class="mobile-nav-close" id="mobileNavClose"><span class="material-symbols-outlined">close</span></button>
-            <a href="index.html">Home</a>
-            <a href="categories.html" class="active">Shop / Collections</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <button class="mobile-nav-close" id="mobileNavClose">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <a href="index.html"><span class="material-symbols-outlined" style="font-size:18px;">home</span> Home</a>
+            <a href="categories.html" class="active"><span class="material-symbols-outlined" style="font-size:18px;">storefront</span> Shop / Collections</a>
+            <a href="category.html?c=home-kitchen"><span class="material-symbols-outlined" style="font-size:18px;">chair</span> Home &amp; Kitchen</a>
+            <a href="category.html?c=beauty-personal-care"><span class="material-symbols-outlined" style="font-size:18px;">spa</span> Beauty</a>
+            <a href="category.html?c=health-wellness"><span class="material-symbols-outlined" style="font-size:18px;">favorite</span> Health &amp; Wellness</a>
+            <a href="category.html?c=pet-supplies"><span class="material-symbols-outlined" style="font-size:18px;">pets</span> Pet Supplies</a>
+            <a href="category.html?c=baby-kids-essentials"><span class="material-symbols-outlined" style="font-size:18px;">child_care</span> Baby &amp; Kids</a>
+            <a href="category.html?c=electronics-accessories"><span class="material-symbols-outlined" style="font-size:18px;">devices</span> Electronics</a>
+            <a href="category.html?c=sports-fitness"><span class="material-symbols-outlined" style="font-size:18px;">fitness_center</span> Sports &amp; Fitness</a>
+            <a href="about.html"><span class="material-symbols-outlined" style="font-size:18px;">info</span> About</a>
+            <a href="contact.html"><span class="material-symbols-outlined" style="font-size:18px;">mail</span> Contact</a>
         </div>
         <div style="flex:1" id="mobileNavBackdrop"></div>
     </div>
 
     <main>
-        <!-- Editorial Hero for Collections -->
-        <section class="relative h-[450px] flex items-center justify-center overflow-hidden">
-            <img src="/assets/editorial_v3/discovery_bg.png" alt="Collections Hero" class="absolute inset-0 w-full h-full object-cover grayscale opacity-30">
-            <div class="relative z-10 text-center">
-                <p class="text-xs font-bold tracking-[0.3em] text-gray-400 uppercase mb-4">The Curated Archive</p>
-                <h1 class="text-6xl md:text-8xl font-heading font-bold text-gray-900 mb-6">Collections</h1>
-                <p class="max-w-2xl mx-auto text-gray-500 text-lg px-6">Explore our meticulously handpicked selections across every facet of a premium lifestyle.</p>
+        <!-- Hero -->
+        <section class="about-hero">
+            <img src="/assets/editorial_v3/discovery_bg.png" alt="Collections Hero" class="about-hero-bg">
+            <div class="about-hero-overlay"></div>
+            <div class="about-hero-content">
+                <p class="about-hero-tag">The Curated Archive</p>
+                <h1 class="about-hero-title">Collections</h1>
+                <p class="about-hero-desc">Explore our meticulously handpicked selections across every facet of a premium lifestyle.</p>
             </div>
         </section>
 
-        <!-- Dynamic Collection Grid -->
-        <section class="py-24 px-6 md:px-20 max-w-[1500px] mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                
-                <!-- Home & Kitchen -->
+        <!-- Category Grid -->
+        <section style="padding: 80px 2rem; max-width: 1500px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
+
                 <a href="category.html?c=home-kitchen" class="avory-cat-card">
                     <div class="cat-img-wrapper">
-                        <img src="/assets/editorial_v3/cat_home.png" alt="Home & Kitchen" class="cat-img">
-                        <div class="cat-overlay"></div>
+                        <img src="/assets/editorial_v3/cat_home.png" alt="Home &amp; Kitchen" class="cat-img">
                     </div>
                     <div class="cat-meta">
-                        <h3 class="cat-title">Home & Kitchen</h3>
-                        <p class="cat-subtitle">Curated Space & Culinary</p>
+                        <h3 class="cat-title">Home &amp; Kitchen</h3>
+                        <p class="cat-subtitle">Curated Space &amp; Culinary</p>
                     </div>
                 </a>
 
-                <!-- Beauty -->
                 <a href="category.html?c=beauty-personal-care" class="avory-cat-card">
                     <div class="cat-img-wrapper">
                         <img src="/assets/editorial_v3/cat_beauty.png" alt="Beauty" class="cat-img">
-                        <div class="cat-overlay"></div>
                     </div>
                     <div class="cat-meta">
-                        <h3 class="cat-title">Beauty & Personal Care</h3>
+                        <h3 class="cat-title">Beauty &amp; Personal Care</h3>
                         <p class="cat-subtitle">Refined Self-Care</p>
                     </div>
                 </a>
 
-                <!-- Health & Wellness -->
                 <a href="category.html?c=health-wellness" class="avory-cat-card">
                     <div class="cat-img-wrapper">
                         <img src="/assets/editorial_v3/cat_health.png" alt="Health" class="cat-img">
-                        <div class="cat-overlay"></div>
                     </div>
                     <div class="cat-meta">
-                        <h3 class="cat-title">Health & Wellness</h3>
+                        <h3 class="cat-title">Health &amp; Wellness</h3>
                         <p class="cat-subtitle">Mindful Living</p>
                     </div>
                 </a>
 
-                <!-- Pet Supplies -->
                 <a href="category.html?c=pet-supplies" class="avory-cat-card">
                     <div class="cat-img-wrapper">
                         <img src="/assets/editorial_v3/cat_pets.png" alt="Pets" class="cat-img">
-                        <div class="cat-overlay"></div>
                     </div>
                     <div class="cat-meta">
                         <h3 class="cat-title">Pet Supplies</h3>
@@ -115,38 +120,32 @@
                     </div>
                 </a>
 
-                <!-- Baby & Kids -->
                 <a href="category.html?c=baby-kids-essentials" class="avory-cat-card">
                     <div class="cat-img-wrapper">
                         <img src="/assets/editorial_v3/cat_kids.png" alt="Baby" class="cat-img">
-                        <div class="cat-overlay"></div>
                     </div>
                     <div class="cat-meta">
-                        <h3 class="cat-title">Baby & Kids Essentials</h3>
-                        <p class="cat-subtitle">Early Luxury Discovery</p>
+                        <h3 class="cat-title">Baby &amp; Kids Essentials</h3>
+                        <p class="cat-subtitle">Early Discovery</p>
                     </div>
                 </a>
 
-                <!-- Electronics -->
-                <a href="category.html?c=electronics-accessories" class="avory-cat-card lg:col-span-1">
+                <a href="category.html?c=electronics-accessories" class="avory-cat-card">
                     <div class="cat-img-wrapper">
                         <img src="/assets/editorial_v3/cat_tech.png" alt="Tech" class="cat-img">
-                        <div class="cat-overlay"></div>
                     </div>
                     <div class="cat-meta">
-                        <h3 class="cat-title">Electronics & Accessories</h3>
+                        <h3 class="cat-title">Electronics &amp; Accessories</h3>
                         <p class="cat-subtitle">Modern Essentials</p>
                     </div>
                 </a>
 
-                <!-- Sports & Fitness -->
-                <a href="category.html?c=sports-fitness" class="avory-cat-card lg:col-span-1">
+                <a href="category.html?c=sports-fitness" class="avory-cat-card">
                     <div class="cat-img-wrapper">
                         <img src="/assets/editorial_v3/cat_men.png" alt="Sports" class="cat-img">
-                        <div class="cat-overlay"></div>
                     </div>
                     <div class="cat-meta">
-                        <h3 class="cat-title">Sports & Fitness</h3>
+                        <h3 class="cat-title">Sports &amp; Fitness</h3>
                         <p class="cat-subtitle">Active Performance</p>
                     </div>
                 </a>
@@ -155,15 +154,34 @@
         </section>
     </main>
 
-    <!-- FOOTER - Standardized -->
+    <!-- FOOTER -->
     <footer class="mrt-footer">
         <div class="footer-grid">
-            <div class="footer-col-brand">
-                <a href="index.html" class="footer-logo">MRT International</a>
-                <p class="footer-desc">MRT International Holding LLC — Wyoming, USA. Your trusted partner for global sourcing and smart shopping.</p>
-                <div style="margin-top: 15px; color: var(--gray-400); font-size: 0.9rem;">
-                    <p>Email: Info@mrtinternationalholding.com</p>
-                    <p>Phone: +1 904 459 4398</p>
+            <div>
+                <p class="footer-col-title">Categories</p>
+                <ul class="footer-links">
+                    <li><a href="category.html?c=home-kitchen"><span class="material-symbols-outlined">arrow_forward</span> Home &amp; Kitchen</a></li>
+                    <li><a href="category.html?c=beauty-personal-care"><span class="material-symbols-outlined">arrow_forward</span> Beauty</a></li>
+                    <li><a href="category.html?c=health-wellness"><span class="material-symbols-outlined">arrow_forward</span> Health &amp; Wellness</a></li>
+                    <li><a href="category.html?c=pet-supplies"><span class="material-symbols-outlined">arrow_forward</span> Pet Supplies</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer-col-title">Company</p>
+                <ul class="footer-links">
+                    <li><a href="index.html"><span class="material-symbols-outlined">arrow_forward</span> Home</a></li>
+                    <li><a href="about.html"><span class="material-symbols-outlined">arrow_forward</span> About</a></li>
+                    <li><a href="categories.html"><span class="material-symbols-outlined">arrow_forward</span> Shop</a></li>
+                    <li><a href="contact.html"><span class="material-symbols-outlined">arrow_forward</span> Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer-col-title">Support</p>
+                <ul class="footer-links">
+                    <li><a href="mailto:Info@mrtinternationalholding.com"><span class="material-symbols-outlined">mail</span> Info@mrtinternationalholding.com</a></li>
+                    <li><a href="tel:+19044594398"><span class="material-symbols-outlined">call</span> +1 904 459 4398</a></li>
+                </ul>
+            </div>
             <div>
                 <p class="footer-brand-logo">MRT International</p>
                 <p class="footer-brand-desc">MRT International Holding LLC — Wyoming, USA. Your trusted partner for global sourcing and smart shopping.</p>
