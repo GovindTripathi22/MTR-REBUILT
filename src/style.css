@@ -698,28 +698,51 @@ body { overflow-x: hidden; }
     font-variation-settings: 'FILL' 1;
 }
 
-/* Trust Statement Banner */
+/* Trust Statement Banner - Enhanced Aesthetic */
 .trust-statement-banner {
-    margin-top: 80px;
-    padding: 60px 40px;
-    background: #111;
+    margin-top: 100px;
+    padding: 100px 40px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('/assets/editorial_v3/trust_bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect for premium feel */
     color: #fff;
-    border-radius: 20px;
+    border-radius: 30px;
     text-align: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.trust-statement-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(2px);
+    z-index: 1;
+}
+
+.trust-statement-banner h3, 
+.trust-statement-banner p {
+    position: relative;
+    z-index: 2;
 }
 
 .trust-statement-banner h3 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 15px;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 25px;
     color: #fff;
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
 }
 
 .trust-statement-banner p {
-    font-size: 18px;
-    color: rgba(255,255,255,0.8);
-    max-width: 600px;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: rgba(255,255,255,0.9);
+    max-width: 750px;
     margin: 0 auto;
-    line-height: 1.6;
+    line-height: 1.8;
+    font-weight: 400;
 }
