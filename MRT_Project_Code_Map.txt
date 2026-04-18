@@ -70,20 +70,20 @@ This document contains the complete file-by-file structure and source code for t
 
 ## File: about.html
 **Path:** `about.html`
-**Size:** 10596 bytes
+**Size:** 11189 bytes
 ```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>About Us | MRT International</title>
+    <title>About Us | MRT International Holding LLC</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,400;1,600&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-25..200" rel="stylesheet">
     <link rel="stylesheet" href="/src/style.css">
     <script type="module" src="/src/main.js"></script>
 </head>
-<body class="bg-white">
+<body class="bg-white" onload="document.body.classList.add('loaded')">
 
     <header class="mrt-nav">
         <a href="index.html" class="mrt-nav-logo">MRT.INTL</a>
@@ -111,131 +111,143 @@ This document contains the complete file-by-file structure and source code for t
     </header>
 
     <main>
-        <!-- Section 1: Editorial Hero -->
-        <section class="relative h-[500px] flex items-center justify-center overflow-hidden">
-            <img src="/assets/editorial_v3/about_hero.png" alt="Editorial" class="absolute inset-0 w-full h-full object-cover grayscale opacity-20">
+        <!-- Section 1: Hero -->
+        <section class="relative h-[450px] flex items-center justify-center overflow-hidden">
+            <img src="/assets/editorial_v3/discovery_bg.png" alt="About Hero" class="absolute inset-0 w-full h-full object-cover grayscale opacity-20">
             <div class="relative z-10 text-center">
-                <h1 class="text-7xl font-heading font-bold text-gray-900 mb-4">About</h1>
-                <p class="text-sm font-medium tracking-widest text-gray-500 uppercase">Home &rarr; About</p>
+                <h1 class="text-6xl md:text-8xl font-heading font-bold text-gray-900 mb-4">About Us</h1>
+                <p class="text-xs font-bold tracking-[0.3em] text-orange-500 uppercase">MRT International Holding LLC</p>
             </div>
         </section>
 
-        <!-- Section 2: Why Choose -->
-        <section class="py-24 px-6 md:px-20 max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div class="rounded-xl overflow-hidden shadow-2xl">
-                <img src="/assets/editorial_v3/why_choose.png" alt="Lifestyle" class="w-full h-full object-cover">
-            </div>
-            <div>
-                <h2 class="text-5xl font-heading font-bold mb-6 text-gray-900">Why Choose MRT.INTL</h2>
-                <p class="text-lg text-gray-600 leading-relaxed mb-8">
-                    At MRT.INTL, we curate luxury, stylish, and functional products from multiple platforms to elevate your lifestyle. Every collection reflects our commitment to quality, elegance, and timeless design.
-                </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
-                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
-                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Curated Collections
-                    </div>
-                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
-                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Style & Elegance
-                    </div>
-                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
-                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Quality-First Approach
-                    </div>
-                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
-                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Global Inspiration
-                    </div>
-                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
-                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Trusted Marketplaces
-                    </div>
-                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
-                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Modern Lifestyle Focus
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 3: Who We Are -->
-        <section class="py-24 px-6 md:px-20 bg-gray-50">
-            <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <!-- Section 2: Detailed Bio -->
+        <section class="py-24 px-6 md:px-20 max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                 <div>
-                    <p class="text-orange-500 font-bold tracking-widest uppercase text-xs mb-4">Who We Are</p>
-                    <h2 class="text-5xl font-heading font-bold text-gray-900 leading-tight mb-8">
-                        Elevating Everyday Living with Curated Style
-                    </h2>
-                    <a href="contact.html" class="inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-bold rounded-lg hover:shadow-lg transition-all">
-                        CONTACT US
-                    </a>
-                </div>
-                <div>
-                    <p class="text-gray-600 leading-relaxed mb-10 text-lg">
-                        MRT.INTL is your destination for beautifully selected luxury-inspired lifestyle pieces. We handpick exceptional products from trusted global marketplaces — bringing you elegant home décor, refined fashion, beauty essentials, tech, and lifestyle finds, all thoughtfully curated in one inspiring place.
+                    <h2 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-8 leading-tight">Your trusted partner for global sourcing.</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                        At MRT International Holding LLC, we are driven by a vision to create a seamless bridge between global products and modern consumers. Established with a forward-thinking approach, we specialize in sourcing, marketing, and delivering high-quality products across multiple categories through innovative digital platforms.
                     </p>
-                    <div class="grid grid-cols-2 gap-y-4 text-gray-800 font-medium">
-                        <p>Men</p>
-                        <p>Garden & Outdoor</p>
-                        <p>Women</p>
-                        <p>Home & Decor</p>
-                        <p>Beauty</p>
-                        <p>Tech & Lifestyle</p>
-                        <p>Kids & Baby</p>
-                        <p>Gifts & Accessories</p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Built on a strong foundation of integrity, professionalism, and strategic insight, our company focuses on scalable e-commerce solutions that prioritize customer satisfaction, operational excellence, and long-term growth.
+                    </p>
+                </div>
+                <div class="space-y-10">
+                    <div>
+                        <h3 class="flex items-center gap-3 text-2xl font-heading font-bold text-gray-900 mb-4">
+                            <span class="material-symbols-outlined text-orange-500">target</span> Mission Statement
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Our mission is to provide customers with high-quality, affordable products through efficient digital platforms while maintaining excellence in service, reliability, and customer satisfaction.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="flex items-center gap-3 text-2xl font-heading font-bold text-gray-900 mb-4">
+                            <span class="material-symbols-outlined text-orange-500">public</span> Vision Statement
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            To become a globally recognized e-commerce and trading company, known for innovation, trust, and delivering value-driven solutions in the digital marketplace.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 4: Discovery Banner -->
-        <section class="relative py-32 px-6 flex flex-col items-center justify-center text-center overflow-hidden min-h-[600px]">
-            <img src="/assets/editorial_v3/discovery_bg.png" alt="Lifestyle" class="absolute inset-0 w-full h-full object-cover grayscale brightness-50">
-            <div class="relative z-10 max-w-4xl">
-                <h2 class="text-5xl md:text-6xl font-heading font-bold text-white mb-6">Discover Luxury, Style, and Inspiration</h2>
-                <p class="text-xl text-white opacity-80 mb-16 leading-relaxed">
-                    At MRT.INTL, every collection is carefully curated to bring you beautifully crafted, high-quality products that enhance your lifestyle. From home and fashion to beauty and tech, we help you find pieces that feel refined, meaningful, and timeless.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    <div class="flex flex-col items-center">
-                        <div class="w-16 h-16 bg-orange-500 rounded-lg flex items-center justify-center mb-4 shadow-lg">
-                            <span class="material-symbols-outlined text-white text-3xl">star</span>
+        <!-- Section 3: Why Choose & Approach -->
+        <section class="py-24 bg-gray-50 px-6 md:px-20">
+            <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
+                <!-- Why Choose Us -->
+                <div>
+                    <h2 class="text-4xl font-heading font-bold text-gray-900 mb-12 flex items-center gap-4">
+                        <span class="text-orange-500">⭐</span> Why Choose Us
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2">Global Sourcing Expertise</h4>
+                            <p class="text-sm text-gray-500">We connect with reliable international suppliers to bring you the best products.</p>
                         </div>
-                        <h3 class="text-white font-bold mb-2">Premium Selection</h3>
-                        <p class="text-white text-xs opacity-70">Only handpicked products from trusted global marketplaces.</p>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2">Competitive Pricing</h4>
+                            <p class="text-sm text-gray-500">Our efficient sourcing model ensures you get great value for your money.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2">Quality Assurance</h4>
+                            <p class="text-sm text-gray-500">We focus on delivering products that meet customer expectations.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2">Customer-Centric</h4>
+                            <p class="text-sm text-gray-500">Your satisfaction is our priority — always.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2">Fast & Reliable</h4>
+                            <p class="text-sm text-gray-500">From order to delivery, we ensure a smooth experience.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2">Continuous Innovation</h4>
+                            <p class="text-sm text-gray-500">We adapt to market trends to serve you better every day.</p>
+                        </div>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-16 h-16 bg-orange-500 rounded-lg flex items-center justify-center mb-4 shadow-lg">
-                            <span class="material-symbols-outlined text-white text-3xl">menu_book</span>
-                        </div>
-                        <h3 class="text-white font-bold mb-2">Stylish & Elegant</h3>
-                        <p class="text-white text-xs opacity-70">Curated items that reflect timeless style and sophistication.</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-16 h-16 bg-orange-500 rounded-lg flex items-center justify-center mb-4 shadow-lg">
-                            <span class="material-symbols-outlined text-white text-3xl">public</span>
-                        </div>
-                        <h3 class="text-white font-bold mb-2">Global Inspiration</h3>
-                        <p class="text-white text-xs opacity-70">Discover unique finds from marketplaces around the world.</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-16 h-16 bg-orange-500 rounded-lg flex items-center justify-center mb-4 shadow-lg">
-                            <span class="material-symbols-outlined text-white text-3xl">lightbulb</span>
-                        </div>
-                        <h3 class="text-white font-bold mb-2">Curated Lifestyle</h3>
-                        <p class="text-white text-xs opacity-70">Products designed to enhance your daily living experience.</p>
+                </div>
+
+                <!-- Our Approach -->
+                <div class="bg-white p-12 rounded-2xl shadow-xl">
+                    <h2 class="text-4xl font-heading font-bold text-gray-900 mb-10 flex items-center gap-4">
+                        <span class="text-orange-500">🤝</span> Our Approach
+                    </h2>
+                    <p class="text-gray-600 mb-8 italic">We combine technology, global sourcing, and customer insights to create a modern shopping experience.</p>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-orange-500">check_circle</span>
+                            <span class="text-gray-800 font-medium">Efficiency through automation</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-orange-500">check_circle</span>
+                            <span class="text-gray-800 font-medium">Strong supplier relationships</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-orange-500">check_circle</span>
+                            <span class="text-gray-800 font-medium">Data-driven decision making</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-orange-500">check_circle</span>
+                            <span class="text-gray-800 font-medium">Scalable business operations</span>
+                        </li>
+                    </ul>
+                    <div class="mt-12 pt-10 border-t border-gray-100">
+                        <a href="contact.html" class="inline-block px-8 py-4 bg-orange-500 text-white font-bold rounded-lg hover:bg-orange-600 transition-colors">
+                            PARTNER WITH US
+                        </a>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 text-center px-6">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">Shop Smart. Shop Global. Shop MRT.</h2>
+            <p class="text-gray-500 mb-10">Experience the difference with Wyoming's trusted e-commerce partner.</p>
+            <a href="categories.html" class="inline-flex items-center gap-3 text-orange-500 font-bold text-xl hover:gap-5 transition-all">
+                START EXPLORING <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
         </section>
     </main>
 
     <footer class="mrt-footer">
         <div class="footer-grid">
-            <div>
-                <p class="footer-brand-logo">MRT.INTL</p>
-                <p class="footer-brand-desc">Curating excellence since 2026.</p>
+            <div class="footer-col-brand">
+                <a href="index.html" class="footer-logo">MRT International</a>
+                <p class="footer-desc">MRT International Holding LLC — Wyoming, USA. Your trusted partner for global sourcing and smart shopping.</p>
+                <div style="margin-top: 15px; color: var(--gray-400); font-size: 0.9rem;">
+                    <p>Email: Info@mrtinternationalholding.com</p>
+                    <p>Phone: +1 904 459 4398</p>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 MRT International Holding LLC — All rights reserved.</p>
+            <p>&copy; 2026 MRT International Holding LLC. All Rights Reserved.</p>
         </div>
     </footer>
+
 </body>
 </html>
 
@@ -245,7 +257,7 @@ This document contains the complete file-by-file structure and source code for t
 
 ## File: categories.html
 **Path:** `categories.html`
-**Size:** 9706 bytes
+**Size:** 9395 bytes
 ```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
@@ -408,25 +420,14 @@ This document contains the complete file-by-file structure and source code for t
     <footer class="mrt-footer">
         <div class="footer-grid">
             <div class="footer-col-brand">
-                <a href="index.html" class="footer-logo">MRT.INTL</a>
-                <p class="footer-desc">Curating high-end discovered pieces from the world's most innovative marketplaces. One destination, infinite discovery.</p>
-            </div>
-            <div class="footer-col">
-                <h4 class="footer-title">Navigation</h4>
-                <ul class="footer-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="categories.html">Collections</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4 class="footer-title">Help</h4>
-                <ul class="footer-menu">
-                    <li><a href="#">Shipping</a></li>
-                    <li><a href="#">Returns</a></li>
-                    <li><a href="#">Privacy</a></li>
-                </ul>
+                <a href="index.html" class="footer-logo">MRT International</a>
+                <p class="footer-desc">MRT International Holding LLC — Wyoming, USA. Your trusted partner for global sourcing and smart shopping.</p>
+                <div style="margin-top: 15px; color: var(--gray-400); font-size: 0.9rem;">
+                    <p>Email: Info@mrtinternationalholding.com</p>
+                    <p>Phone: +1 904 459 4398</p>
+            <div>
+                <p class="footer-brand-logo">MRT International</p>
+                <p class="footer-brand-desc">MRT International Holding LLC — Wyoming, USA. Your trusted partner for global sourcing and smart shopping.</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -538,7 +539,7 @@ This document contains the complete file-by-file structure and source code for t
 
 ## File: contact.html
 **Path:** `contact.html`
-**Size:** 7165 bytes
+**Size:** 7571 bytes
 ```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
@@ -597,14 +598,18 @@ This document contains the complete file-by-file structure and source code for t
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;">
                 <div>
                     <p style="text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; color: var(--orange); font-weight: 700; margin-bottom: 2rem;">Get in Touch</p>
-                    <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 2.5rem; line-height: 1.1;">Connect With Us</h1>
+                    <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 2.5rem; line-height: 1.1;">MRT International Holding LLC</h1>
                     <p style="font-size: 1.1rem; line-height: 1.8; color: var(--muted); margin-bottom: 4rem;">
-                        Whether you have a product suggestion, a partnership inquiry, or need assistance, our team is here to help.
+                        Whether you have a product suggestion, a partnership inquiry, or need assistance, our team is here to help. Discover smarter shopping today.
                     </p>
                     <div style="display: flex; flex-direction: column; gap: 2rem;">
                         <div>
                             <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--ink); margin-bottom: 0.5rem;">Email Support</p>
-                            <p style="font-family: 'Playfair Display', serif; font-size: 1.75rem;">support@mrt-intl.com</p>
+                            <p style="font-family: 'Playfair Display', serif; font-size: 1.75rem;">Info@mrtinternationalholding.com</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--ink); margin-bottom: 0.5rem;">Phone & WhatsApp</p>
+                            <p style="font-family: 'Playfair Display', serif; font-size: 1.75rem;">+1 904 459 4398</p>
                         </div>
                     </div>
                 </div>
@@ -1009,15 +1014,16 @@ module.exports = {
 
 ## File: index.html
 **Path:** `index.html`
-**Size:** 20412 bytes
+**Size:** 20538 bytes
 ```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MRT International | Curated Luxury Finds</title>
+    <title>MRT International Holding LLC | Curated Luxury Finds</title>
     <meta name="description" content="Discover beautifully handpicked home, beauty, health, and lifestyle pieces from global marketplaces — all curated in one elegant space.">
+    <meta name="keywords" content="Global sourcing company, Online shopping UAE, E-commerce store international, Affordable online products, Dropshipping store UAE, Buy trending products online, Best online deals UAE, International trading company">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,400;1,600&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0..1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/style.css">
@@ -1108,15 +1114,15 @@ module.exports = {
             <img src="/assets/editorial_v3/hero_v4_no_people.png" alt="Luxury Interior" class="hero-bg" loading="eager">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <p class="hero-eyebrow">Welcome to MRT.INTL</p>
+                <p class="hero-eyebrow">Welcome to MRT International Holding LLC</p>
                 <h1 class="hero-title">MRT.INTL</h1>
-                <p class="hero-subtitle">Curated Luxury Finds for Your Lifestyle</p>
+                <p class="hero-subtitle">Your Gateway to Global Shopping</p>
                 <p class="hero-desc">
-                    Discover beautifully handpicked home, beauty, health, and lifestyle<br>
-                    pieces from global marketplaces — all curated in one elegant space.
+                    Your trusted partner for smart online shopping and global sourcing.<br>
+                    We bring together quality products, competitive pricing, and a seamless digital experience.
                 </p>
                 <a href="categories.html" class="hero-cta">
-                    EXPLORE COLLECTIONS
+                    DISCOVER SMARTER SHOPPING
                     <span class="material-symbols-outlined">arrow_forward</span>
                 </a>
             </div>
@@ -1213,16 +1219,15 @@ module.exports = {
         </section>
 
         
-        <!-- Why Choose AVORY Section -->
         <section class="avory-why-section">
             <div class="avory-why-img-container">
                 <img src="/assets/editorial_v3/why_choose.png" alt="Premium Lifestyle">
             </div>
             <div class="avory-why-content">
                 <span class="avory-why-tag">Why Choose</span>
-                <h2 class="avory-why-title font-heading">AVORY.FINDS</h2>
+                <h2 class="avory-why-title font-heading text-4xl mb-6">MRT International</h2>
                 <p class="avory-why-desc">
-                    At AVORY.FINDS, we curate luxury, stylish, and functional products from multiple platforms to elevate your lifestyle. 
+                    At MRT International Holding LLC, we curate luxury, stylish, and functional products from multiple platforms to elevate your lifestyle. 
                     Every collection reflects our commitment to quality, elegance, and timeless design.
                 </p>
                 
@@ -1305,7 +1310,7 @@ module.exports = {
             <div>
                 <p class="footer-col-title">Customer Support</p>
                 <ul class="footer-links">
-                    <li><a href="mailto:support@mrt.intl"><span class="material-symbols-outlined">mail</span> support@mrt.intl</a></li>
+                    <li><a href="mailto:Info@mrtinternationalholding.com"><span class="material-symbols-outlined">mail</span> Info@mrtinternationalholding.com</a></li>
                     <li><a href="#"><span class="material-symbols-outlined">arrow_forward</span> Privacy Policy</a></li>
                     <li><a href="#"><span class="material-symbols-outlined">arrow_forward</span> Terms &amp; Conditions</a></li>
                     <li><a href="#"><span class="material-symbols-outlined">arrow_forward</span> Affiliate Disclosure</a></li>
@@ -1323,15 +1328,18 @@ module.exports = {
             </div>
 
             <div>
-                <p class="footer-brand-logo">MRT.INTL</p>
+                <p class="footer-brand-logo">MRT International</p>
                 <p class="footer-brand-desc">
-                    MRT International Holding LLC — Curated luxury finds from global marketplaces, brought together in one elegant space.
+                    MRT International Holding LLC — Wyoming, USA. Your trusted partner for global sourcing and smart shopping.
                 </p>
+                <div style="margin-top: 15px; color: var(--gray-400); font-size: 0.9rem;">
+                    <p>Email: Info@mrtinternationalholding.com</p>
+                    <p>Phone: +1 904 459 4398</p>
+                </div>
                 <div class="footer-socials">
-                    <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    <a href="https://facebook.com/MRTInternational" aria-label="Facebook"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
                     <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4l16 16M20 4L4 20" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg></a>
                     <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg></a>
-                    <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="#111"/></svg></a>
                 </div>
             </div>
         </div>
@@ -6520,7 +6528,7 @@ export function setupCounter(element) {
 
 ## File: main.js
 **Path:** `src\main.js`
-**Size:** 7377 bytes
+**Size:** 9054 bytes
 ```javascript
 import './style.css';
 
@@ -6595,25 +6603,54 @@ class MRTApp {
 
   async fetchAndRender(container, limit) {
     try {
-      const res = await fetch(`/api/products?_t=${Date.now()}`);
-      const data = await res.json();
-      this.allProducts = Array.isArray(data) ? data : (data.products || []);
-
-      let productsToRender = this.allProducts;
+      // If we are on a specific category page, we fetch category details (theme + products)
       if (this.activeCategory) {
-        // FIX: Match against p.category.slug instead of p.category object
-        productsToRender = this.allProducts.filter(p => p.category && p.category.slug === this.activeCategory);
-      }
+        const res = await fetch(`/api/categories/${this.activeCategory}?_t=${Date.now()}`);
+        const categoryData = await res.json();
+        
+        if (categoryData && categoryData.products) {
+          this.updateCategoryUI(categoryData); // Pass the full theme data
 
-      if (productsToRender.length > 0) {
-        container.innerHTML = productsToRender.slice(0, limit).map(p => this.createProductCard(p)).join('');
+          const products = categoryData.products;
+          const topPicks = products.filter(p => (p.badge || '').toLowerCase().includes('top pick'));
+          const trending = products.filter(p => (p.badge || '').toLowerCase().includes('trending now'));
+          const editors  = products.filter(p => (p.badge || '').toLowerCase().includes('editor'));
+
+          let html = '';
+
+          const renderSection = (title, emoji, items) => {
+            if (items.length === 0) return '';
+            return `
+              <div class="category-section mt-16 first:mt-0">
+                <div class="flex items-center gap-3 mb-12 border-b border-gray-100 pb-4">
+                  <span class="text-3xl">${emoji}</span>
+                  <h2 class="text-4xl font-heading font-bold text-gray-900">${title}</h2>
+                </div>
+                <div class="avory-product-grid">
+                  ${items.map(p => this.createProductCard(p)).join('')}
+                </div>
+              </div>
+            `;
+          };
+
+          html += renderSection('Top Picks', '⭐', topPicks);
+          html += renderSection('Trending Now', '🔥', trending);
+          html += renderSection("Editor's Choice", '💡', editors);
+
+          container.innerHTML = html || '<p class="text-center py-20 opacity-40">No products found in this collection.</p>';
+          container.classList.remove('avory-product-grid'); // Structure handled by sections now
+        }
       } else {
-        container.innerHTML = `
-          <div class="w-full text-center py-32 opacity-40">
-            <span class="material-symbols-outlined mb-4" style="font-size: 48px;">inventory_2</span>
-            <p class="text-xl">No products found in this collection.</p>
-          </div>
-        `;
+        // Fallback for general products list (e.g., Homepage)
+        const res = await fetch(`/api/products?_t=${Date.now()}`);
+        const data = await res.json();
+        const products = Array.isArray(data) ? data : (data.products || []);
+        
+        if (products.length > 0) {
+          container.innerHTML = products.slice(0, limit).map(p => this.createProductCard(p)).join('');
+        } else {
+          container.innerHTML = '<p class="text-center py-20 opacity-40">No curated finds available.</p>';
+        }
       }
     } catch (err) {
       console.error('MRT CMS Error:', err);
@@ -6621,27 +6658,30 @@ class MRTApp {
     }
   }
 
-  updateCategoryUI() {
-    if (this.activeCategory) {
-      const titleEl = document.getElementById('category-title-display');
-      if (titleEl) {
-        titleEl.innerText = this.activeCategory.replace(/-/g, ' ').toUpperCase();
-      }
-      
-      // Update Hero Background based on slug (Editorial mapping)
-      const hero = document.getElementById('category-hero');
-      if (hero) {
-        const assetMap = {
-          'home-kitchen': '/assets/editorial_v3/cat_home.png',
-          'beauty-personal-care': '/assets/editorial_v3/cat_beauty.png',
-          'health-wellness': '/assets/editorial_v3/cat_garden.png',
-          'baby-kids-essentials': '/assets/editorial_v3/cat_kids.png',
-          'electronics-accessories': '/assets/editorial_v3/cat_tech.png',
-          'sports-fitness': '/assets/editorial_v3/cat_men.png'
-        };
-        const bg = assetMap[this.activeCategory] || '/assets/editorial_v3/hero.png';
-        hero.style.backgroundImage = `url('${bg}')`;
-      }
+  updateCategoryUI(categoryData) {
+    const titleEl = document.getElementById('category-title-display');
+    const descEl = document.getElementById('category-desc-display');
+    
+    if (categoryData && categoryData.theme) {
+      const theme = categoryData.theme;
+      if (titleEl) titleEl.innerText = theme.seoTitle || categoryData.name.toUpperCase();
+      if (descEl)  descEl.innerText  = theme.seoIntro || theme.subtitle || '';
+    }
+
+    // Update Hero Background
+    const hero = document.getElementById('category-hero');
+    if (hero) {
+      const assetMap = {
+        'home-kitchen': '/assets/editorial_v3/cat_home.png',
+        'beauty-personal-care': '/assets/editorial_v3/cat_beauty.png',
+        'health-wellness': '/assets/editorial_v3/cat_health.png',
+        'baby-kids-essentials': '/assets/editorial_v3/cat_kids.png',
+        'electronics-accessories': '/assets/editorial_v3/cat_tech.png',
+        'sports-fitness': '/assets/editorial_v3/cat_men.png',
+        'pet-supplies': '/assets/editorial_v3/cat_pets.png'
+      };
+      const bg = assetMap[this.activeCategory] || '/assets/editorial_v3/hero.png';
+      hero.style.backgroundImage = `url('${bg}')`;
     }
   }
 

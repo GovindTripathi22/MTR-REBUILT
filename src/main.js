@@ -71,25 +71,54 @@ class MRTApp {
 
   async fetchAndRender(container, limit) {
     try {
-      const res = await fetch(`/api/products?_t=${Date.now()}`);
-      const data = await res.json();
-      this.allProducts = Array.isArray(data) ? data : (data.products || []);
-
-      let productsToRender = this.allProducts;
+      // If we are on a specific category page, we fetch category details (theme + products)
       if (this.activeCategory) {
-        // FIX: Match against p.category.slug instead of p.category object
-        productsToRender = this.allProducts.filter(p => p.category && p.category.slug === this.activeCategory);
-      }
+        const res = await fetch(`/api/categories/${this.activeCategory}?_t=${Date.now()}`);
+        const categoryData = await res.json();
+        
+        if (categoryData && categoryData.products) {
+          this.updateCategoryUI(categoryData); // Pass the full theme data
 
-      if (productsToRender.length > 0) {
-        container.innerHTML = productsToRender.slice(0, limit).map(p => this.createProductCard(p)).join('');
+          const products = categoryData.products;
+          const topPicks = products.filter(p => (p.badge || '').toLowerCase().includes('top pick'));
+          const trending = products.filter(p => (p.badge || '').toLowerCase().includes('trending now'));
+          const editors  = products.filter(p => (p.badge || '').toLowerCase().includes('editor'));
+
+          let html = '';
+
+          const renderSection = (title, emoji, items) => {
+            if (items.length === 0) return '';
+            return `
+              <div class="category-section mt-16 first:mt-0">
+                <div class="flex items-center gap-3 mb-12 border-b border-gray-100 pb-4">
+                  <span class="text-3xl">${emoji}</span>
+                  <h2 class="text-4xl font-heading font-bold text-gray-900">${title}</h2>
+                </div>
+                <div class="avory-product-grid">
+                  ${items.map(p => this.createProductCard(p)).join('')}
+                </div>
+              </div>
+            `;
+          };
+
+          html += renderSection('Top Picks', '⭐', topPicks);
+          html += renderSection('Trending Now', '🔥', trending);
+          html += renderSection("Editor's Choice", '💡', editors);
+
+          container.innerHTML = html || '<p class="text-center py-20 opacity-40">No products found in this collection.</p>';
+          container.classList.remove('avory-product-grid'); // Structure handled by sections now
+        }
       } else {
-        container.innerHTML = `
-          <div class="w-full text-center py-32 opacity-40">
-            <span class="material-symbols-outlined mb-4" style="font-size: 48px;">inventory_2</span>
-            <p class="text-xl">No products found in this collection.</p>
-          </div>
-        `;
+        // Fallback for general products list (e.g., Homepage)
+        const res = await fetch(`/api/products?_t=${Date.now()}`);
+        const data = await res.json();
+        const products = Array.isArray(data) ? data : (data.products || []);
+        
+        if (products.length > 0) {
+          container.innerHTML = products.slice(0, limit).map(p => this.createProductCard(p)).join('');
+        } else {
+          container.innerHTML = '<p class="text-center py-20 opacity-40">No curated finds available.</p>';
+        }
       }
     } catch (err) {
       console.error('MRT CMS Error:', err);
@@ -97,27 +126,30 @@ class MRTApp {
     }
   }
 
-  updateCategoryUI() {
-    if (this.activeCategory) {
-      const titleEl = document.getElementById('category-title-display');
-      if (titleEl) {
-        titleEl.innerText = this.activeCategory.replace(/-/g, ' ').toUpperCase();
-      }
-      
-      // Update Hero Background based on slug (Editorial mapping)
-      const hero = document.getElementById('category-hero');
-      if (hero) {
-        const assetMap = {
-          'home-kitchen': '/assets/editorial_v3/cat_home.png',
-          'beauty-personal-care': '/assets/editorial_v3/cat_beauty.png',
-          'health-wellness': '/assets/editorial_v3/cat_garden.png',
-          'baby-kids-essentials': '/assets/editorial_v3/cat_kids.png',
-          'electronics-accessories': '/assets/editorial_v3/cat_tech.png',
-          'sports-fitness': '/assets/editorial_v3/cat_men.png'
-        };
-        const bg = assetMap[this.activeCategory] || '/assets/editorial_v3/hero.png';
-        hero.style.backgroundImage = `url('${bg}')`;
-      }
+  updateCategoryUI(categoryData) {
+    const titleEl = document.getElementById('category-title-display');
+    const descEl = document.getElementById('category-desc-display');
+    
+    if (categoryData && categoryData.theme) {
+      const theme = categoryData.theme;
+      if (titleEl) titleEl.innerText = theme.seoTitle || categoryData.name.toUpperCase();
+      if (descEl)  descEl.innerText  = theme.seoIntro || theme.subtitle || '';
+    }
+
+    // Update Hero Background
+    const hero = document.getElementById('category-hero');
+    if (hero) {
+      const assetMap = {
+        'home-kitchen': '/assets/editorial_v3/cat_home.png',
+        'beauty-personal-care': '/assets/editorial_v3/cat_beauty.png',
+        'health-wellness': '/assets/editorial_v3/cat_health.png',
+        'baby-kids-essentials': '/assets/editorial_v3/cat_kids.png',
+        'electronics-accessories': '/assets/editorial_v3/cat_tech.png',
+        'sports-fitness': '/assets/editorial_v3/cat_men.png',
+        'pet-supplies': '/assets/editorial_v3/cat_pets.png'
+      };
+      const bg = assetMap[this.activeCategory] || '/assets/editorial_v3/hero.png';
+      hero.style.backgroundImage = `url('${bg}')`;
     }
   }
 

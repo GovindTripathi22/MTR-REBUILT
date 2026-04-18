@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>About Us | MRT International</title>
+    <title>About Us | MRT International Holding LLC</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,400;1,600&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-25..200" rel="stylesheet">
     <link rel="stylesheet" href="/src/style.css">
     <script type="module" src="/src/main.js"></script>
 </head>
-<body class="bg-white">
+<body class="bg-white" onload="document.body.classList.add('loaded')">
 
     <header class="mrt-nav">
         <a href="index.html" class="mrt-nav-logo">MRT.INTL</a>
@@ -37,130 +37,142 @@
     </header>
 
     <main>
-        <!-- Section 1: Editorial Hero -->
-        <section class="relative h-[500px] flex items-center justify-center overflow-hidden">
-            <img src="/assets/editorial_v3/about_hero.png" alt="Editorial" class="absolute inset-0 w-full h-full object-cover grayscale opacity-20">
+        <!-- Section 1: Hero -->
+        <section class="relative h-[450px] flex items-center justify-center overflow-hidden">
+            <img src="/assets/editorial_v3/discovery_bg.png" alt="About Hero" class="absolute inset-0 w-full h-full object-cover grayscale opacity-20">
             <div class="relative z-10 text-center">
-                <h1 class="text-7xl font-heading font-bold text-gray-900 mb-4">About</h1>
-                <p class="text-sm font-medium tracking-widest text-gray-500 uppercase">Home &rarr; About</p>
+                <h1 class="text-6xl md:text-8xl font-heading font-bold text-gray-900 mb-4">About Us</h1>
+                <p class="text-xs font-bold tracking-[0.3em] text-orange-500 uppercase">MRT International Holding LLC</p>
             </div>
         </section>
 
-        <!-- Section 2: Why Choose -->
-        <section class="py-24 px-6 md:px-20 max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div class="rounded-xl overflow-hidden shadow-2xl">
-                <img src="/assets/editorial_v3/why_choose.png" alt="Lifestyle" class="w-full h-full object-cover">
-            </div>
-            <div>
-                <h2 class="text-5xl font-heading font-bold mb-6 text-gray-900">Why Choose MRT.INTL</h2>
-                <p class="text-lg text-gray-600 leading-relaxed mb-8">
-                    At MRT.INTL, we curate luxury, stylish, and functional products from multiple platforms to elevate your lifestyle. Every collection reflects our commitment to quality, elegance, and timeless design.
-                </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
-                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
-                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Curated Collections
-                    </div>
-                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
-                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Style & Elegance
-                    </div>
-                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
-                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Quality-First Approach
-                    </div>
-                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
-                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Global Inspiration
-                    </div>
-                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
-                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Trusted Marketplaces
-                    </div>
-                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
-                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Modern Lifestyle Focus
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 3: Who We Are -->
-        <section class="py-24 px-6 md:px-20 bg-gray-50">
-            <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <!-- Section 2: Detailed Bio -->
+        <section class="py-24 px-6 md:px-20 max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                 <div>
-                    <p class="text-orange-500 font-bold tracking-widest uppercase text-xs mb-4">Who We Are</p>
-                    <h2 class="text-5xl font-heading font-bold text-gray-900 leading-tight mb-8">
-                        Elevating Everyday Living with Curated Style
-                    </h2>
-                    <a href="contact.html" class="inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-bold rounded-lg hover:shadow-lg transition-all">
-                        CONTACT US
-                    </a>
-                </div>
-                <div>
-                    <p class="text-gray-600 leading-relaxed mb-10 text-lg">
-                        MRT.INTL is your destination for beautifully selected luxury-inspired lifestyle pieces. We handpick exceptional products from trusted global marketplaces — bringing you elegant home décor, refined fashion, beauty essentials, tech, and lifestyle finds, all thoughtfully curated in one inspiring place.
+                    <h2 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-8 leading-tight">Your trusted partner for global sourcing.</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                        At MRT International Holding LLC, we are driven by a vision to create a seamless bridge between global products and modern consumers. Established with a forward-thinking approach, we specialize in sourcing, marketing, and delivering high-quality products across multiple categories through innovative digital platforms.
                     </p>
-                    <div class="grid grid-cols-2 gap-y-4 text-gray-800 font-medium">
-                        <p>Men</p>
-                        <p>Garden & Outdoor</p>
-                        <p>Women</p>
-                        <p>Home & Decor</p>
-                        <p>Beauty</p>
-                        <p>Tech & Lifestyle</p>
-                        <p>Kids & Baby</p>
-                        <p>Gifts & Accessories</p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Built on a strong foundation of integrity, professionalism, and strategic insight, our company focuses on scalable e-commerce solutions that prioritize customer satisfaction, operational excellence, and long-term growth.
+                    </p>
+                </div>
+                <div class="space-y-10">
+                    <div>
+                        <h3 class="flex items-center gap-3 text-2xl font-heading font-bold text-gray-900 mb-4">
+                            <span class="material-symbols-outlined text-orange-500">target</span> Mission Statement
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Our mission is to provide customers with high-quality, affordable products through efficient digital platforms while maintaining excellence in service, reliability, and customer satisfaction.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="flex items-center gap-3 text-2xl font-heading font-bold text-gray-900 mb-4">
+                            <span class="material-symbols-outlined text-orange-500">public</span> Vision Statement
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            To become a globally recognized e-commerce and trading company, known for innovation, trust, and delivering value-driven solutions in the digital marketplace.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 4: Discovery Banner -->
-        <section class="relative py-32 px-6 flex flex-col items-center justify-center text-center overflow-hidden min-h-[600px]">
-            <img src="/assets/editorial_v3/discovery_bg.png" alt="Lifestyle" class="absolute inset-0 w-full h-full object-cover grayscale brightness-50">
-            <div class="relative z-10 max-w-4xl">
-                <h2 class="text-5xl md:text-6xl font-heading font-bold text-white mb-6">Discover Luxury, Style, and Inspiration</h2>
-                <p class="text-xl text-white opacity-80 mb-16 leading-relaxed">
-                    At MRT.INTL, every collection is carefully curated to bring you beautifully crafted, high-quality products that enhance your lifestyle. From home and fashion to beauty and tech, we help you find pieces that feel refined, meaningful, and timeless.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    <div class="flex flex-col items-center">
-                        <div class="w-16 h-16 bg-orange-500 rounded-lg flex items-center justify-center mb-4 shadow-lg">
-                            <span class="material-symbols-outlined text-white text-3xl">star</span>
+        <!-- Section 3: Why Choose & Approach -->
+        <section class="py-24 bg-gray-50 px-6 md:px-20">
+            <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
+                <!-- Why Choose Us -->
+                <div>
+                    <h2 class="text-4xl font-heading font-bold text-gray-900 mb-12 flex items-center gap-4">
+                        <span class="text-orange-500">⭐</span> Why Choose Us
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2">Global Sourcing Expertise</h4>
+                            <p class="text-sm text-gray-500">We connect with reliable international suppliers to bring you the best products.</p>
                         </div>
-                        <h3 class="text-white font-bold mb-2">Premium Selection</h3>
-                        <p class="text-white text-xs opacity-70">Only handpicked products from trusted global marketplaces.</p>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2">Competitive Pricing</h4>
+                            <p class="text-sm text-gray-500">Our efficient sourcing model ensures you get great value for your money.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2">Quality Assurance</h4>
+                            <p class="text-sm text-gray-500">We focus on delivering products that meet customer expectations.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2">Customer-Centric</h4>
+                            <p class="text-sm text-gray-500">Your satisfaction is our priority — always.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2">Fast & Reliable</h4>
+                            <p class="text-sm text-gray-500">From order to delivery, we ensure a smooth experience.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2">Continuous Innovation</h4>
+                            <p class="text-sm text-gray-500">We adapt to market trends to serve you better every day.</p>
+                        </div>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-16 h-16 bg-orange-500 rounded-lg flex items-center justify-center mb-4 shadow-lg">
-                            <span class="material-symbols-outlined text-white text-3xl">menu_book</span>
-                        </div>
-                        <h3 class="text-white font-bold mb-2">Stylish & Elegant</h3>
-                        <p class="text-white text-xs opacity-70">Curated items that reflect timeless style and sophistication.</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-16 h-16 bg-orange-500 rounded-lg flex items-center justify-center mb-4 shadow-lg">
-                            <span class="material-symbols-outlined text-white text-3xl">public</span>
-                        </div>
-                        <h3 class="text-white font-bold mb-2">Global Inspiration</h3>
-                        <p class="text-white text-xs opacity-70">Discover unique finds from marketplaces around the world.</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-16 h-16 bg-orange-500 rounded-lg flex items-center justify-center mb-4 shadow-lg">
-                            <span class="material-symbols-outlined text-white text-3xl">lightbulb</span>
-                        </div>
-                        <h3 class="text-white font-bold mb-2">Curated Lifestyle</h3>
-                        <p class="text-white text-xs opacity-70">Products designed to enhance your daily living experience.</p>
+                </div>
+
+                <!-- Our Approach -->
+                <div class="bg-white p-12 rounded-2xl shadow-xl">
+                    <h2 class="text-4xl font-heading font-bold text-gray-900 mb-10 flex items-center gap-4">
+                        <span class="text-orange-500">🤝</span> Our Approach
+                    </h2>
+                    <p class="text-gray-600 mb-8 italic">We combine technology, global sourcing, and customer insights to create a modern shopping experience.</p>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-orange-500">check_circle</span>
+                            <span class="text-gray-800 font-medium">Efficiency through automation</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-orange-500">check_circle</span>
+                            <span class="text-gray-800 font-medium">Strong supplier relationships</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-orange-500">check_circle</span>
+                            <span class="text-gray-800 font-medium">Data-driven decision making</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-orange-500">check_circle</span>
+                            <span class="text-gray-800 font-medium">Scalable business operations</span>
+                        </li>
+                    </ul>
+                    <div class="mt-12 pt-10 border-t border-gray-100">
+                        <a href="contact.html" class="inline-block px-8 py-4 bg-orange-500 text-white font-bold rounded-lg hover:bg-orange-600 transition-colors">
+                            PARTNER WITH US
+                        </a>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 text-center px-6">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">Shop Smart. Shop Global. Shop MRT.</h2>
+            <p class="text-gray-500 mb-10">Experience the difference with Wyoming's trusted e-commerce partner.</p>
+            <a href="categories.html" class="inline-flex items-center gap-3 text-orange-500 font-bold text-xl hover:gap-5 transition-all">
+                START EXPLORING <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
         </section>
     </main>
 
     <footer class="mrt-footer">
         <div class="footer-grid">
-            <div>
-                <p class="footer-brand-logo">MRT.INTL</p>
-                <p class="footer-brand-desc">Curating excellence since 2026.</p>
+            <div class="footer-col-brand">
+                <a href="index.html" class="footer-logo">MRT International</a>
+                <p class="footer-desc">MRT International Holding LLC — Wyoming, USA. Your trusted partner for global sourcing and smart shopping.</p>
+                <div style="margin-top: 15px; color: var(--gray-400); font-size: 0.9rem;">
+                    <p>Email: Info@mrtinternationalholding.com</p>
+                    <p>Phone: +1 904 459 4398</p>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 MRT International Holding LLC — All rights reserved.</p>
+            <p>&copy; 2026 MRT International Holding LLC. All Rights Reserved.</p>
         </div>
     </footer>
+
 </body>
 </html>
