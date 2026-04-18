@@ -192,6 +192,15 @@ class MRTApp {
   }
 
   createTestimonialCard(t) {
+    // Flag mapping
+    const flags = {
+      'us': '🇺🇸',
+      'ae': '🇦🇪',
+      'uk': '🇬🇧',
+      'ca': '🇨🇦'
+    };
+    const flag = flags[(t.region || '').toLowerCase()] || '🌍';
+
     // Generate star icons based on rating
     const stars = Array(t.rating || 5)
       .fill('<span class="material-symbols-outlined testimonial-star">star</span>')
@@ -202,12 +211,18 @@ class MRTApp {
 
     return `
       <div class="testimonial-card">
+        <div class="testimonial-badge">
+          <span class="material-symbols-outlined" style="font-size: 14px;">verified</span>
+          Verified Buyer
+        </div>
         <div class="testimonial-stars-wrap">${stars}</div>
         ${quoteHtml}
         ${textHtml}
         <div class="testimonial-author">
+          <div class="author-flag">${flag}</div>
           <div class="author-info">
-            <p>— ${t.name || 'Anonymous'}, ${t.location || ''}</p>
+            <h4>${t.name || 'Anonymous'}</h4>
+            <p>${t.location || ''}</p>
           </div>
         </div>
       </div>
