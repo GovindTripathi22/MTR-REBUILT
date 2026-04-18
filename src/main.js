@@ -80,33 +80,13 @@ class MRTApp {
           this.updateCategoryUI(categoryData); // Pass the full theme data
 
           const products = categoryData.products;
-          const topPicks = products.filter(p => (p.badge || '').toLowerCase().includes('top pick'));
-          const trending = products.filter(p => (p.badge || '').toLowerCase().includes('trending now'));
-          const editors  = products.filter(p => (p.badge || '').toLowerCase().includes('editor'));
-
-          let html = '';
-
-          const renderSection = (title, emoji, items) => {
-            if (items.length === 0) return '';
-            return `
-              <div class="category-section mt-16 first:mt-0">
-                <div class="flex items-center gap-3 mb-12 border-b border-gray-100 pb-4">
-                  <span class="text-3xl">${emoji}</span>
-                  <h2 class="text-4xl font-heading font-bold text-gray-900">${title}</h2>
-                </div>
-                <div class="avory-product-grid">
-                  ${items.map(p => this.createProductCard(p)).join('')}
-                </div>
-              </div>
-            `;
-          };
-
-          html += renderSection('Top Picks', '⭐', topPicks);
-          html += renderSection('Trending Now', '🔥', trending);
-          html += renderSection("Editor's Choice", '💡', editors);
-
-          container.innerHTML = html || '<p class="text-center py-20 opacity-40">No products found in this collection.</p>';
-          container.classList.remove('avory-product-grid'); // Structure handled by sections now
+          
+          if (products.length > 0) {
+            container.innerHTML = products.map(p => this.createProductCard(p)).join('');
+            container.classList.add('avory-product-grid'); // Restore grid styling
+          } else {
+            container.innerHTML = '<p class="text-center py-20 opacity-40">No products found in this collection.</p>';
+          }
         }
       } else {
         // Fallback for general products list (e.g., Homepage)
