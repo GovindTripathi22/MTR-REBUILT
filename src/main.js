@@ -121,28 +121,18 @@ class MRTApp {
     }
   }
 
-  createProductCard(product) {
-    const name = product.name || 'Premium Item';
-    const img = product.image || `/assets/products/premium_product_placeholder.png`;
-    const priceStr = product.price ? parseFloat(product.price).toFixed(2) : '0.00';
-    const currency = product.currency === 'AED' ? 'د.إ ' : '$';
-
+  createProductCard(p) {
+    const isAffiliate = p.affiliateUrl && p.affiliateUrl.length > 5;
+    const buyUrl = isAffiliate ? p.affiliateUrl : `product.html?id=${p.id}`;
+    
     return `
-      <article class="prod-card-v2" data-id="${product.id}">
-          <div class="prod-card-img-wrap">
-              <img src="${img}" alt="${name}" loading="lazy">
+      <article class="product-card">
+          <div class="image-wrapper">
+              <img src="${p.image}" alt="${p.name}" loading="lazy">
           </div>
-          <div class="prod-card-info">
-              <h3 class="prod-card-title">${name}</h3>
-              <div class="prod-card-price">${currency}${priceStr}</div>
-              <div class="prod-card-actions">
-                  <a href="#" class="btn-details-avory" onclick="event.preventDefault(); window.quickAddProduct('${product.id}');">
-                      DETAILS
-                  </a>
-                  <a href="#" class="btn-buy-avory" onclick="event.preventDefault(); window.quickAddProduct('${product.id}');">
-                      BUY NOW
-                  </a>
-              </div>
+          <div class="product-info">
+              <h2>${p.name}</h2>
+              <a href="${buyUrl}" target="_blank" class="btn-primary">Buy Now</a>
           </div>
       </article>
     `;
@@ -195,14 +185,17 @@ class MRTApp {
       .fill('<span class="material-symbols-outlined testimonial-star">star</span>')
       .join('');
 
+    const quoteHtml = t.quote && t.quote !== 'null' ? `<p class="testimonial-quote">"${t.quote}"</p>` : '';
+    const textHtml = t.text && t.text !== 'null' ? `<p class="testimonial-text">${t.text}</p>` : '';
+
     return `
       <div class="testimonial-card">
         <div class="testimonial-stars-wrap">${stars}</div>
-        <p class="testimonial-quote">"${t.quote}"</p>
-        <p class="testimonial-text">${t.text}</p>
+        ${quoteHtml}
+        ${textHtml}
         <div class="testimonial-author">
           <div class="author-info">
-            <p>— ${t.name}, ${t.location}</p>
+            <p>— ${t.name || 'Anonymous'}, ${t.location || ''}</p>
           </div>
         </div>
       </div>

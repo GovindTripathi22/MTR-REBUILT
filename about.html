@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>About Us | MRT International</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,400;1,600&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-25..200" rel="stylesheet">
     <link rel="stylesheet" href="/src/style.css">
     <script type="module" src="/src/main.js"></script>
 </head>
-<body onload="document.body.classList.add('loaded')">
+<body class="bg-white">
 
     <header class="mrt-nav">
         <a href="index.html" class="mrt-nav-logo">MRT.INTL</a>
@@ -17,17 +17,15 @@
             <a href="index.html">Home</a>
             <a href="categories.html">Shop / Collections</a>
             <div class="nav-dropdown-container">
-                <a href="categories.html" style="display:flex;align-items:center;gap:3px;">
-                    Categories <span class="material-symbols-outlined" style="font-size:17px;">expand_more</span>
-                </a>
+                <a href="categories.html">Categories <span class="material-symbols-outlined">expand_more</span></a>
                 <div class="nav-dropdown">
-                    <a href="category.html?c=home-kitchen"         class="nav-dropdown-item">Home &amp; Kitchen</a>
-                    <a href="category.html?c=beauty-personal-care" class="nav-dropdown-item">Beauty &amp; Personal Care</a>
-                    <a href="category.html?c=health-wellness"      class="nav-dropdown-item">Health &amp; Wellness</a>
-                    <a href="category.html?c=pet-supplies"         class="nav-dropdown-item">Pet Supplies</a>
-                    <a href="category.html?c=baby-kids-essentials" class="nav-dropdown-item">Baby &amp; Kids Essentials</a>
-                    <a href="category.html?c=electronics-accessories" class="nav-dropdown-item">Electronics &amp; Accessories</a>
-                    <a href="category.html?c=sports-fitness"       class="nav-dropdown-item">Sports &amp; Fitness</a>
+                    <a href="category.html?c=home-kitchen" class="nav-dropdown-item">Home & Kitchen</a>
+                    <a href="category.html?c=beauty-personal-care" class="nav-dropdown-item">Beauty</a>
+                    <a href="category.html?c=health-wellness" class="nav-dropdown-item">Wellness</a>
+                    <a href="category.html?c=pet-supplies" class="nav-dropdown-item">Pet Supplies</a>
+                    <a href="category.html?c=baby-kids-essentials" class="nav-dropdown-item">Baby & Kids</a>
+                    <a href="category.html?c=electronics-accessories" class="nav-dropdown-item">Tech</a>
+                    <a href="category.html?c=sports-fitness" class="nav-dropdown-item">Sports</a>
                 </div>
             </div>
             <a href="about.html" class="active">About</a>
@@ -35,56 +33,133 @@
         </nav>
         <div class="mrt-nav-right">
             <a href="categories.html" class="nav-cta">EXPLORE COLLECTIONS</a>
-            <button class="nav-menu-btn" id="mobileMenuToggle"><span class="material-symbols-outlined">menu</span></button>
         </div>
     </header>
 
-    <div class="mobile-nav" id="mobileNav">
-        <div class="mobile-nav-panel">
-            <button class="mobile-nav-close" id="mobileNavClose"><span class="material-symbols-outlined">close</span></button>
-            <a href="index.html">Home</a>
-            <a href="categories.html">Shop / Collections</a>
-            <a href="about.html" class="active">About</a>
-            <a href="contact.html">Contact</a>
-        </div>
-        <div style="flex:1" id="mobileNavBackdrop"></div>
-    </div>
-
     <main>
-        <section style="padding: 8rem 2rem; max-width: 900px; margin: 0 auto; text-align: center;">
-            <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 2rem;">Our Story</p>
-            <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 3rem;">Bespoke Curation</h1>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--muted); margin-bottom: 4rem;">
-                MRT.INTL was founded on a singular principle: that true luxury is found in the thoughtful intersection of quality and aesthetics. We scour the world's most innovative marketplaces to bring you a handpicked collection of lifestyle essentials.
-            </p>
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Excellence" style="width: 100%; border-radius: 12px; box-shadow: 0 30px 60px rgba(0,0,0,0.1);">
+        <!-- Section 1: Editorial Hero -->
+        <section class="relative h-[500px] flex items-center justify-center overflow-hidden">
+            <img src="/assets/editorial_v3/about_hero.png" alt="Editorial" class="absolute inset-0 w-full h-full object-cover grayscale opacity-20">
+            <div class="relative z-10 text-center">
+                <h1 class="text-7xl font-heading font-bold text-gray-900 mb-4">About</h1>
+                <p class="text-sm font-medium tracking-widest text-gray-500 uppercase">Home &rarr; About</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Why Choose -->
+        <section class="py-24 px-6 md:px-20 max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div class="rounded-xl overflow-hidden shadow-2xl">
+                <img src="/assets/editorial_v3/why_choose.png" alt="Lifestyle" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <h2 class="text-5xl font-heading font-bold mb-6 text-gray-900">Why Choose MRT.INTL</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                    At MRT.INTL, we curate luxury, stylish, and functional products from multiple platforms to elevate your lifestyle. Every collection reflects our commitment to quality, elegance, and timeless design.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
+                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Curated Collections
+                    </div>
+                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
+                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Style & Elegance
+                    </div>
+                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
+                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Quality-First Approach
+                    </div>
+                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
+                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Global Inspiration
+                    </div>
+                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
+                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Trusted Marketplaces
+                    </div>
+                    <div class="flex items-center gap-3 text-gray-800 font-semibold">
+                        <span class="material-symbols-outlined text-orange-500">arrow_forward</span> Modern Lifestyle Focus
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Who We Are -->
+        <section class="py-24 px-6 md:px-20 bg-gray-50">
+            <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <p class="text-orange-500 font-bold tracking-widest uppercase text-xs mb-4">Who We Are</p>
+                    <h2 class="text-5xl font-heading font-bold text-gray-900 leading-tight mb-8">
+                        Elevating Everyday Living with Curated Style
+                    </h2>
+                    <a href="contact.html" class="inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-bold rounded-lg hover:shadow-lg transition-all">
+                        CONTACT US
+                    </a>
+                </div>
+                <div>
+                    <p class="text-gray-600 leading-relaxed mb-10 text-lg">
+                        MRT.INTL is your destination for beautifully selected luxury-inspired lifestyle pieces. We handpick exceptional products from trusted global marketplaces — bringing you elegant home décor, refined fashion, beauty essentials, tech, and lifestyle finds, all thoughtfully curated in one inspiring place.
+                    </p>
+                    <div class="grid grid-cols-2 gap-y-4 text-gray-800 font-medium">
+                        <p>Men</p>
+                        <p>Garden & Outdoor</p>
+                        <p>Women</p>
+                        <p>Home & Decor</p>
+                        <p>Beauty</p>
+                        <p>Tech & Lifestyle</p>
+                        <p>Kids & Baby</p>
+                        <p>Gifts & Accessories</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Discovery Banner -->
+        <section class="relative py-32 px-6 flex flex-col items-center justify-center text-center overflow-hidden min-h-[600px]">
+            <img src="/assets/editorial_v3/discovery_bg.png" alt="Lifestyle" class="absolute inset-0 w-full h-full object-cover grayscale brightness-50">
+            <div class="relative z-10 max-w-4xl">
+                <h2 class="text-5xl md:text-6xl font-heading font-bold text-white mb-6">Discover Luxury, Style, and Inspiration</h2>
+                <p class="text-xl text-white opacity-80 mb-16 leading-relaxed">
+                    At MRT.INTL, every collection is carefully curated to bring you beautifully crafted, high-quality products that enhance your lifestyle. From home and fashion to beauty and tech, we help you find pieces that feel refined, meaningful, and timeless.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-orange-500 rounded-lg flex items-center justify-center mb-4 shadow-lg">
+                            <span class="material-symbols-outlined text-white text-3xl">star</span>
+                        </div>
+                        <h3 class="text-white font-bold mb-2">Premium Selection</h3>
+                        <p class="text-white text-xs opacity-70">Only handpicked products from trusted global marketplaces.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-orange-500 rounded-lg flex items-center justify-center mb-4 shadow-lg">
+                            <span class="material-symbols-outlined text-white text-3xl">menu_book</span>
+                        </div>
+                        <h3 class="text-white font-bold mb-2">Stylish & Elegant</h3>
+                        <p class="text-white text-xs opacity-70">Curated items that reflect timeless style and sophistication.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-orange-500 rounded-lg flex items-center justify-center mb-4 shadow-lg">
+                            <span class="material-symbols-outlined text-white text-3xl">public</span>
+                        </div>
+                        <h3 class="text-white font-bold mb-2">Global Inspiration</h3>
+                        <p class="text-white text-xs opacity-70">Discover unique finds from marketplaces around the world.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-orange-500 rounded-lg flex items-center justify-center mb-4 shadow-lg">
+                            <span class="material-symbols-outlined text-white text-3xl">lightbulb</span>
+                        </div>
+                        <h3 class="text-white font-bold mb-2">Curated Lifestyle</h3>
+                        <p class="text-white text-xs opacity-70">Products designed to enhance your daily living experience.</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer class="mrt-footer">
         <div class="footer-grid">
             <div>
-                <p class="footer-col-title">Company</p>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <p class="footer-col-title">Categories</p>
-                <ul class="footer-links">
-                    <li><a href="category.html?c=home-kitchen">Home &amp; Kitchen</a></li>
-                    <li><a href="category.html?c=beauty-personal-care">Beauty</a></li>
-                </ul>
-            </div>
-            <div>
                 <p class="footer-brand-logo">MRT.INTL</p>
                 <p class="footer-brand-desc">Curating excellence since 2026.</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 MRT International Holding LLC</p>
+            <p>© 2026 MRT International Holding LLC — All rights reserved.</p>
         </div>
     </footer>
 </body>

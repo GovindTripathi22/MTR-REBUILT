@@ -18,8 +18,8 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-family: 'Inter', sans-serif; color: var(--ink); background: #fff; scroll-behavior: smooth; }
-body { opacity: 0; transition: opacity 0.4s ease; overflow-x: hidden; }
-body.loaded { opacity: 1; }
+body { overflow-x: hidden; }
+/* body.loaded { opacity: 1; } - Removed to prevent white screen issues */
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }

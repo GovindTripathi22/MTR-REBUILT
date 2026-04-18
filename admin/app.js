@@ -314,7 +314,7 @@ async function renderDashboard(main) {
                 </div>
               </td>
               <td><span class="badge badge-info">Affiliate Click</span></td>
-              <td class="text-muted text-sm">${new Date(c.createdAt).toLocaleString()}</td>
+              <td class="text-muted text-sm">${new Date(c.clickedAt || c.createdAt).toLocaleString()}</td>
             </tr>
           `).join('') || '<tr><td colspan="3" class="text-center text-muted" style="padding:2rem">No recent activity</td></tr>'}
         </tbody>
@@ -972,7 +972,7 @@ async function renderAnalytics(main) {
               <td><strong>${c.product?.name || 'Unknown'}</strong></td>
               <td class="hide-xs"><span class="badge badge-info">${c.source || 'Direct'}</span></td>
               <td class="text-xs hide-sm" style="opacity:0.5;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.userAgent || '-'}</td>
-              <td class="text-xs">${new Date(c.createdAt).toLocaleString()}</td>
+              <td class="text-xs">${new Date(c.clickedAt || c.createdAt).toLocaleString()}</td>
             </tr>
           `).join('') || '<tr><td colspan="4" class="text-center text-muted" style="padding:2rem">No clicks recorded</td></tr>'}
         </tbody>
