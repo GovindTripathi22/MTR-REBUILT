@@ -891,7 +891,7 @@ function showBlogModal(post) {
     }
     
     if (res?.error) { toast(res.error, 'error'); submitBtn.disabled = false; submitBtn.innerHTML = isEdit ? 'Update Post' : 'Create Post'; return; }
-    toast(\`Post \${isEdit ? 'updated' : 'created'}\`);
+    toast(`Post ${isEdit ? 'updated' : 'created'}`);
     overlay.remove();
     renderView();
   });
