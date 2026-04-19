@@ -182,6 +182,9 @@ function updateSidebar() {
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Content</div>
+      <a class="nav-item ${currentView === 'blog' ? 'active' : ''}" data-view="blog">
+        <span class="material-symbols-outlined">article</span> Blog
+      </a>
       <a class="nav-item ${currentView === 'products' ? 'active' : ''}" data-view="products">
         <span class="material-symbols-outlined">inventory_2</span> Products
       </a>
@@ -246,6 +249,7 @@ async function renderView() {
 
   switch (currentView) {
     case 'dashboard': await renderDashboard(viewContainer); break;
+    case 'blog': await renderBlog(viewContainer); break;
     case 'products': await renderProducts(viewContainer); break;
     case 'categories': await renderCategories(viewContainer); break;
     case 'testimonials': await renderTestimonials(viewContainer); break;
@@ -774,6 +778,120 @@ function showCategoryModal(cat) {
       await api('/categories', { method: 'POST', body: JSON.stringify(body) });
       toast('Category created');
     }
+    overlay.remove();
+    renderView();
+  });
+}
+
+// === Blog ===
+async function renderBlog(main) {
+  const data = await api('/blog/admin/all');
+  if (!data) return;
+  
+  main.innerHTML = `
+    <div class="page-header">
+      <div><h2>Blog Posts</h2><div class="subtitle">${data.length} posts total</div></div>
+      <button class="btn btn-primary" id="btn-add-blog"><span class="material-symbols-outlined">add</span> Add Post</button>
+    </div>
+    <div class="table-container">
+      <table>
+        <thead><tr><th>Image</th><th>Title & Slug</th><th class="hide-xs">Author</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody>
+          ${data.map(p => `
+            <tr>
+              <td><img src="${p.coverImage || ''}" class="product-thumb" alt="" onerror="this.style.opacity='0.2'"></td>
+              <td><strong>${p.title}</strong><br><span class="text-muted text-sm">${p.slug}</span></td>
+              <td class="hide-xs">${p.author}</td>
+              <td><span class="badge ${p.isPublished ? 'badge-success' : 'badge-warning'}">${p.isPublished ? 'Published' : 'Draft'}</span></td>
+              <td>
+                <div class="action-btns">
+                  <button class="btn btn-sm btn-secondary btn-edit-blog" data-id="${p.id}" title="Edit"><span class="material-symbols-outlined">edit</span></button>
+                  <button class="btn btn-sm btn-danger btn-delete-blog" data-id="${p.id}" title="Delete"><span class="material-symbols-outlined">delete</span></button>
+                </div>
+              </td>
+            </tr>
+          `).join('') || '<tr><td colspan="5" class="text-center text-muted" style="padding:2rem">No posts yet</td></tr>'}
+        </tbody>
+      </table>
+    </div>
+  `;
+
+  document.getElementById('btn-add-blog')?.addEventListener('click', () => showBlogModal(null));
+  document.querySelectorAll('.btn-edit-blog').forEach(b => b.addEventListener('click', () => {
+    const post = data.find(x => String(x.id) === String(b.dataset.id));
+    if (post) showBlogModal(post);
+  }));
+
+  document.querySelectorAll('.btn-delete-blog').forEach(b => b.addEventListener('click', async () => {
+    if (!confirm('Delete this blog post?')) return;
+    b.disabled = true;
+    b.innerHTML = '<div class="loading-spinner" style="width:14px;height:14px"></div>';
+    const res = await api(`/blog/${b.dataset.id}`, { method: 'DELETE' });
+    if (res?.error) { toast('Delete failed: ' + res.error, 'error'); b.disabled = false; b.innerHTML = '<span class="material-symbols-outlined">delete</span>'; return; }
+    toast('Post deleted'); await renderView();
+  }));
+}
+
+function showBlogModal(post) {
+  const isEdit = !!post;
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.innerHTML = `
+    <div class="modal" style="max-width:800px; width:95%;">
+      <div class="modal-header">
+        <h3>${isEdit ? 'Edit Blog Post' : 'Add Blog Post'}</h3>
+        <button class="modal-close-btn" id="modal-close-x" type="button"><span class="material-symbols-outlined">close</span></button>
+      </div>
+      <form id="blog-form">
+        <div class="grid-2">
+          <div class="form-group"><label>Title</label><input type="text" name="title" value="${post?.title || ''}" required></div>
+          <div class="form-group"><label>Slug</label><input type="text" name="slug" value="${post?.slug || ''}" placeholder="auto-generated"></div>
+        </div>
+        <div class="form-group">
+          <label>Cover Image URL</label>
+          <input type="text" name="coverImage" value="${post?.coverImage || ''}" placeholder="https://example.com/image.jpg">
+        </div>
+        <div class="grid-2">
+          <div class="form-group"><label>Author</label><input type="text" name="author" value="${post?.author || 'MRT Editorial'}"></div>
+          <div class="form-group" style="display:flex;align-items:center;gap:0.5rem;padding-top:2rem">
+            <input type="checkbox" id="isPublished" name="isPublished" ${post?.isPublished ? 'checked' : ''} style="width:auto;height:auto;transform:scale(1.2)">
+            <label for="isPublished" style="margin:0;font-weight:700;color:var(--ink)">Published & Visible on Site</label>
+          </div>
+        </div>
+        <div class="form-group"><label>Excerpt</label><textarea name="excerpt" style="height:60px">${post?.excerpt || ''}</textarea></div>
+        <div class="form-group"><label>HTML Content</label><textarea name="content" required style="height:350px;font-family:monospace;font-size:13px">${post?.content || ''}</textarea></div>
+        
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="modal-cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary">${isEdit ? 'Update' : 'Create'} Post</button>
+        </div>
+      </form>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  overlay.querySelector('#modal-cancel').addEventListener('click', () => overlay.remove());
+  overlay.querySelector('#modal-close-x').addEventListener('click', () => overlay.remove());
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
+
+  overlay.querySelector('#blog-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const body = Object.fromEntries(fd.entries());
+    body.isPublished = e.target.querySelector('#isPublished').checked;
+
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<div class="loading-spinner" style="width:16px;height:16px"></div> Saving...';
+
+    let res;
+    if (isEdit) {
+      res = await api(`/blog/${post.id}`, { method: 'PUT', body: JSON.stringify(body) });
+    } else {
+      res = await api('/blog', { method: 'POST', body: JSON.stringify(body) });
+    }
+    
+    if (res?.error) { toast(res.error, 'error'); submitBtn.disabled = false; submitBtn.innerHTML = isEdit ? 'Update Post' : 'Create Post'; return; }
+    toast(\`Post \${isEdit ? 'updated' : 'created'}\`);
     overlay.remove();
     renderView();
   });
