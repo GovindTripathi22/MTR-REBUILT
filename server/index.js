@@ -19,6 +19,7 @@ import reviewsRouter from './routes/reviews.js';
 import mediaRouter from './routes/media.js';
 import adminRouter from './routes/admin.js';
 import contactRouter from './routes/contact.js';
+import blogRouter from './routes/blog.js';
 import prisma from './db.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -108,6 +109,7 @@ app.use('/api/reviews', reviewsRouter);
 app.use('/api/media', mediaRouter);
 app.use('/api/admin', adminRouter);
 app.use('/api/contact', contactRouter);
+app.use('/api/blog', blogRouter);
 
 // ENHANCED: Resilient legacy compatibility route WITH Missing Category Alerts
 app.get('/api/legacy/products', async (req, res) => {

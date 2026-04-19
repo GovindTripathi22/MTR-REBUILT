@@ -148,3 +148,17 @@ model MediaFile {
   uploadedBy   String?
   createdAt    DateTime @default(now())
 }
+
+model BlogPost {
+  id          Int      @id @default(autoincrement())
+  title       String
+  slug        String   @unique
+  excerpt     String?
+  content     String
+  coverImage  String?
+  author      String   @default("MRT Editorial")
+  isPublished Boolean  @default(false)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
